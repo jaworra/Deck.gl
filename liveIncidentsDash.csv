@@ -1,0 +1,35 @@
+id,type,blockage Type,classification,road,loggedTime,Bus Routes Affected
+16636619,Stationary Vehicle,Unknown,Broken-down Vehicle,Johnson Rd / Parkinson,14:32:44,No Buses Affected
+16636607,Congestion,No Blockage,Recurring,Pacific Hwy / Reedy Creek,14:27:29,No Buses Affected
+16636603,Stationary Vehicle,Unknown,Broken-down Vehicle,Western Fwy Bikeway / Indooroopilly,14:25:58,No Buses Affected
+16636595,Planned Event/Roadworks,Partially Blocked,Roadworks,Southport Nerang Rd / Southport,14:12:31,No Buses Affected
+16636526,Stationary Vehicle,No Blockage,Broken-down Vehicle,Western Fwy / Indooroopilly,13:56:20,No Buses Affected
+16636441,Stationary Vehicle,No Blockage,Broken-down Vehicle,Pacific Mtwy / Helensvale,13:27:37,No Buses Affected
+16636419,Stationary Vehicle,Partially Blocked,Illegally Parked Vehicle,Edward St / Brisbane City,13:27:24,112-1020
+16636270,Fault,Unknown,None,Pacific Mtwy On Ramp / Underwood,13:03:15,No Buses Affected
+16636269,Crash,Partially Blocked,Primary Crash,Montague St / Greenslopes,13:02:30,No Buses Affected
+16636264,Fault,Unknown,None,Gold Coast Springbrook Rd / Springbrook,13:01:14,No Buses Affected
+16636258,Fault,Unknown,None,Nerang Murwillumbah Rd / Natural Bridge,12:58:45,No Buses Affected
+16636252,Planned Event/Roadworks,Unknown,Roadworks,Old Cleveland Rd / Chandler,12:54:44,250-872
+16636223,Stationary Vehicle,No Blockage,Broken-down Vehicle,Centenary Hwy / Mount Ommaney,12:11:49,No Buses Affected
+16636207,Fault,Unknown,None,Pacific Mtwy On Ramp / Underwood,11:59:20,555-862
+16636143,Stationary Vehicle,No Blockage,Broken-down Vehicle,Pacific Mtwy / Loganholme,11:52:40,563-862
+16636138,Fault,Unknown,None,Pacific Mtwy / Eight Mile Plains,11:51:18,576-862
+16636128,Fault,Unknown,None,Mirambeena Dr Off Ramp / Pimpama,11:50:56,No Buses Affected
+16635922,Alert,Unknown,Other,White St / Nerang,10:58:09,No Buses Affected
+16635803,Planned Event/Roadworks,No Blockage,Roadworks,Bermuda St / Mermaid Waters,09:22:21,No Buses Affected
+16635798,Fault,Unknown,None,Cornmeal Pde / Maroochydore,09:19:36,No Buses Affected
+16635529,Fault,Unknown,None,Gardner Rd / Rochedale,08:24:37,No Buses Affected
+16635472,Planned Event/Roadworks,Blocked,Roadworks,Beaudesert Beenleigh Rd / Luscombe,07:48:52,No Buses Affected
+16635449,Planned Event/Roadworks,Partially Blocked,Roadworks,Nerang Broadbeach Rd / Nerang,07:41:15,No Buses Affected
+16635213,Planned Event/Roadworks,Blocked,Roadworks,Gold Coast Highway / Palm Beach,06:18:13,700-1024
+16635208,Planned Event/Roadworks,Partially Blocked,Roadworks,Gold Coast Hwy / Mermaid Beach,06:14:52,No Buses Affected
+16635146,Planned Event/Roadworks,No Blockage,Roadworks,Gold Coast Highway / Palm Beach,05:49:21,777-1024
+16635104,Planned Event/Roadworks,Partially Blocked,Project / Permit Works,Lytton Rd / East Brisbane,05:03:51,No Buses Affected
+16635030,Planned Event/Roadworks,Unknown,Other,White Street / Nerang,00:02:27,No Buses Affected
+16635029,Planned Event/Roadworks,Unknown,Other,White Street / Nerang,00:01:45,No Buses Affected
+16635027,Planned Event/Roadworks,Unknown,Other,White Street / Nerang,00:01:08,No Buses Affected
+16634990,Fault,Unknown,None,Smith St / Molendinar,23:04:31,GCS-876
+16634780,Fault,Unknown,None,Days Rd / Upper Coomera,19:10:22,No Buses Affected
+16634772,Fault,Unknown,None,Sunshine Mtwy / Buderim,19:01:38,No Buses Affected
+16634348,Planned Event/Roadworks,Blocked,Roadworks,Nicklin Way / Minyama,14:47:23,No Buses Affected

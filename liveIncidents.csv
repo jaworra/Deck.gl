@@ -1,129 +1,164 @@
 id,lng,lat,status,blockageType,classification,loggedTime
-16594211,152.951608,-27.084944,Completed,Unknown,None,5:53:56 25-07-2019
-16594215,152.952005,-27.083546,Completed,Unknown,None,5:56:03 25-07-2019
-16594229,153.0577698,-27.53303528,Completed,Partially Blocked,Broken-down Vehicle,6:02:58 25-07-2019
-16594275,153.4075515,-27.9400726,In Progress,Partially Blocked,Roadworks,8:36:14 25-07-2019
-16594280,153.0566559,-27.52718735,Completed,No Blockage,Non-recurring,9:05:16 25-07-2019
-16594281,152.9627991,-27.50071526,Completed,No Blockage,Non-recurring,9:05:51 25-07-2019
-16594282,152.9773712,-27.56687927,Completed,Unknown,Non-recurring,9:06:54 25-07-2019
-16594283,153.0110626,-27.46382523,Completed,Unknown,Non-recurring,9:07:27 25-07-2019
-16594284,153.0359039,-27.46915436,Completed,Unknown,Non-recurring,9:08:14 25-07-2019
-16594285,153.0415039,-27.31292725,Completed,Unknown,Non-recurring,9:08:41 25-07-2019
-16594290,152.7615124,-27.61158271,Completed,Partially Blocked,Road Surface/Infrastructure,9:27:48 25-07-2019
-16594295,153.4742012,-28.12337764,Completed,Blocked,Roadworks,9:35:48 25-07-2019
-16594302,153.0240887,-26.44224416,Completed,No Blockage,Primary Crash,9:46:06 25-07-2019
-16594304,153.0539703,-27.47509575,Completed,No Blockage,Roadworks,9:49:39 25-07-2019
-16594310,153.0735048,-26.59556781,In Progress,Unknown,None,9:56:06 25-07-2019
-16594314,153.2906665,-27.82241256,Completed,No Blockage,Broken-down Vehicle,9:56:55 25-07-2019
-16594316,153.4825773,-28.15305132,Completed,No Blockage,Broken-down Vehicle,9:57:14 25-07-2019
-16594327,153.1069031,-27.58701134,Completed,No Blockage,Abandoned Vehicle,0:03:16 25-07-2019
-16594336,153.3829441,-27.87922413,In Progress,Partially Blocked,Roadworks,0:10:57 25-07-2019
-16594352,153.3131895,-27.86988265,Completed,No Blockage,Broken-down Vehicle,0:22:15 25-07-2019
-16594370,153.0779445,-27.35212142,Completed,No Blockage,Broken-down Vehicle,0:38:57 25-07-2019
-16594382,153.0182125,-27.46848315,Completed,No Blockage,Debris/Obstruction/Spill,0:47:10 25-07-2019
-16594398,153.3781468,-28.08365772,Completed,No Blockage,Debris/Obstruction/Spill,0:58:38 25-07-2019
-16594409,153.1665986,-27.55941335,Completed,No Blockage,Unauthorised Access,1:00:38 25-07-2019
-16594429,153.3508059,-28.02329184,Completed,No Blockage,Broken-down Vehicle,1:11:01 25-07-2019
-16594434,153.030848,-27.48332306,Completed,No Blockage,Debris/Obstruction/Spill,1:12:11 25-07-2019
-16594442,153.3417213,-27.94953312,Completed,No Blockage,Broken-down Vehicle,1:15:33 25-07-2019
-16594447,153.3792618,-28.03501629,Completed,Partially Blocked,Roadworks,1:19:32 25-07-2019
-16594455,153.0501516,-26.77252789,Completed,No Blockage,Recurring,1:24:37 25-07-2019
-16594463,152.9937618,-26.67325898,Completed,No Blockage,Recurring,1:26:32 25-07-2019
-16594465,153.4857296,-28.13490262,In Progress,Blocked,Roadworks,1:27:47 25-07-2019
-16594467,153.1786477,-27.80715886,In Progress,Blocked,Roadworks,1:30:03 25-07-2019
-16594472,153.3493907,-27.92213872,In Progress,No Blockage,Project / Permit Works,1:30:52 25-07-2019
-16594476,153.4584414,-28.11907753,Completed,Unknown,Recurring,1:33:05 25-07-2019
-16594482,153.3184672,-27.91064334,Completed,No Blockage,Recurring,1:34:06 25-07-2019
-16594483,153.0331617,-27.41188439,Completed,No Blockage,Illegally Parked Vehicle,1:35:18 25-07-2019
-16594491,153.0267799,-27.47243587,Completed,Unknown,Illegally Parked Vehicle,1:37:16 25-07-2019
-16594504,153.0479633,-26.74352475,Completed,No Blockage,Recurring,1:44:04 25-07-2019
-16594506,153.3493907,-27.92213872,Completed,No Blockage,Roadworks,1:44:11 25-07-2019
-16594519,152.9759879,-27.32602705,Completed,No Blockage,Primary Crash,1:55:15 25-07-2019
-16594530,153.0396603,-27.50062573,Completed,Partially Blocked,Primary Crash,2:00:32 25-07-2019
-16594550,153.0364685,-27.69800949,In Progress,Unknown,None,2:05:10 25-07-2019
-16594556,153.0243665,-27.46866882,Completed,Partially Blocked,Other,2:06:59 25-07-2019
-16594562,153.4620514,-28.1216526,Completed,Unknown,Roadworks,2:09:13 25-07-2019
-16594593,153.0344942,-27.45641836,Completed,Unknown,Illegally Parked Vehicle,2:17:03 25-07-2019
-16594606,153.0472856,-26.74057939,Completed,No Blockage,Primary Crash,2:22:23 25-07-2019
-16594612,153.0365266,-27.41687109,Completed,Partially Blocked,Broken-down Vehicle,2:25:09 25-07-2019
-16594614,153.3492254,-28.01671982,In Progress,No Blockage,Broken-down Vehicle,2:25:17 25-07-2019
-16594625,153.073808,-26.78054326,Completed,No Blockage,Recurring,2:26:58 25-07-2019
-16594644,153.0044567,-27.47353356,Completed,Partially Blocked,Broken-down Vehicle,2:35:06 25-07-2019
-16594658,153.0499419,-27.47637175,Completed,Partially Blocked,Project / Permit Works,2:38:16 25-07-2019
-16594660,153.093479,-26.71074033,Completed,No Blockage,LUMS/VSL Intervention,2:38:24 25-07-2019
-16594672,153.045791,-27.661693,Completed,Unknown,None,2:40:56 25-07-2019
-16594688,152.8047943,-27.61108589,In Progress,Partially Blocked,Project / Permit Works,2:44:48 25-07-2019
-16594691,153.3402468,-27.95179059,Completed,Partially Blocked,Broken-down Vehicle,2:45:20 25-07-2019
-16594695,153.3449781,-27.96042715,Completed,No Blockage,Broken-down Vehicle,2:46:22 25-07-2019
-16594727,153.4388105,-28.11371531,Completed,Partially Blocked,Broken-down Vehicle,2:55:26 25-07-2019
-16594735,152.7933043,-27.57378384,Completed,No Blockage,Debris/Obstruction/Spill,2:56:41 25-07-2019
-16594772,153.4079805,-28.0393549,In Progress,Unknown,Roadworks,3:11:13 25-07-2019
-16594774,153.0500804,-26.66207395,In Progress,Unknown,Roadworks,3:11:48 25-07-2019
-16594781,153.3485469,-28.01651553,Completed,Partially Blocked,Primary Crash,3:13:21 25-07-2019
-16594782,153.3419189,-28.00622177,Completed,Unknown,None,3:13:33 25-07-2019
-16594783,153.3369714,-27.93844063,Completed,No Blockage,Broken-down Vehicle,3:13:50 25-07-2019
-16594801,153.1018372,-27.57950401,Completed,No Blockage,Broken-down Vehicle,3:17:40 25-07-2019
-16594834,153.0867464,-26.64683356,In Progress,Unknown,Planned Event,3:32:49 25-07-2019
-16594846,153.208819,-27.71500195,Completed,No Blockage,Broken-down Vehicle,3:39:23 25-07-2019
-16594850,152.894823,-27.38121178,In Progress,Unknown,Roadworks,3:39:51 25-07-2019
-16594856,153.2670241,-27.80713526,In Progress,Unknown,None,3:40:32 25-07-2019
-16594876,152.750434,-27.64304297,Completed,Unknown,None,3:49:29 25-07-2019
-16594882,153.0946476,-26.53604078,In Progress,Blocked,Roadworks,3:52:32 25-07-2019
-16594899,153.0762693,-27.34391331,Completed,No Blockage,Broken-down Vehicle,3:58:17 25-07-2019
-16594904,153.0263718,-27.37547935,Completed,Unknown,None,0:00:01 26-07-2019
-16594916,153.2531265,-27.78139702,Completed,No Blockage,Broken-down Vehicle,0:07:02 26-07-2019
-16594920,153.3450132,-27.96017284,Completed,No Blockage,Roadworks,0:07:34 26-07-2019
-16594932,153.0849609,-27.43424416,Completed,Partially Blocked,Debris/Obstruction/Spill,0:11:29 26-07-2019
-16594941,152.8190997,-27.58526021,Completed,No Blockage,Debris/Obstruction/Spill,0:18:10 26-07-2019
-16594943,152.938431,-27.394333,In Progress,Unknown,None,0:18:57 26-07-2019
-16594946,153.063517,-27.54604925,Completed,No Blockage,Debris/Obstruction/Spill,0:21:16 26-07-2019
-16594951,153.424967,-28.037719,Completed,Unknown,Primary Crash,0:22:20 26-07-2019
-16594952,152.938431,-27.394333,Completed,No Blockage,Equipment Fault,0:22:47 26-07-2019
-16594974,153.0496184,-27.42966786,In Progress,Unknown,None,0:44:31 26-07-2019
-16594975,153.4487939,-28.11608415,In Progress,Unknown,None,0:45:06 26-07-2019
-16594981,153.066255,-26.66052861,Completed,No Blockage,Road Surface/Infrastructure,0:47:33 26-07-2019
-16594987,153.0296198,-27.48553037,In Progress,Partially Blocked,Project / Permit Works,0:55:40 26-07-2019
-16594994,153.0629001,-27.54580738,Completed,No Blockage,Debris/Obstruction/Spill,1:01:14 26-07-2019
-16594995,153.253897,-27.7824594,Completed,No Blockage,Broken-down Vehicle,1:01:15 26-07-2019
-16595011,153.1447296,-27.64287376,Completed,Partially Blocked,Broken-down Vehicle,1:08:53 26-07-2019
-16595031,153.0816094,-27.39736335,Completed,No Blockage,Unauthorised Access,1:11:41 26-07-2019
-16595071,153.3562514,-28.01827024,Completed,No Blockage,Debris/Obstruction/Spill,1:28:28 26-07-2019
-16595075,153.224508,-27.73050111,Completed,No Blockage,Broken-down Vehicle,1:29:31 26-07-2019
-16595083,153.030211,-27.443465,Completed,Partially Blocked,Broken-down Vehicle,1:34:43 26-07-2019
-16595094,153.0474448,-26.74122855,Completed,Partially Blocked,Broken-down Vehicle,1:37:09 26-07-2019
-16595141,153.3359745,-27.93660639,Completed,No Blockage,Debris/Obstruction/Spill,2:03:29 26-07-2019
-16595151,153.3085208,-27.85365596,Completed,No Blockage,Broken-down Vehicle,2:10:26 26-07-2019
-16595166,153.4127947,-28.05597105,Completed,No Blockage,Primary Crash,2:24:48 26-07-2019
-16595175,153.0860855,-26.65845716,In Progress,Unknown,Other,2:31:44 26-07-2019
-16595233,153.4127947,-28.05597105,Completed,Unknown,None,3:08:08 26-07-2019
-16595236,153.1297207,-26.71726253,Completed,Unknown,Primary Crash,3:08:28 26-07-2019
-16595255,153.3387321,-27.94251437,Completed,No Blockage,Broken-down Vehicle,3:10:41 26-07-2019
-16595261,153.4258557,-28.10058472,Completed,Partially Blocked,Broken-down Vehicle,3:11:36 26-07-2019
-16595273,152.7914611,-27.64441062,Completed,No Blockage,Debris/Obstruction/Spill,3:13:36 26-07-2019
-16595302,153.0661313,-27.5500435,Completed,Partially Blocked,Broken-down Vehicle,3:31:05 26-07-2019
-16595312,153.4704414,-28.15020874,In Progress,Unknown,None,3:34:39 26-07-2019
-16595325,153.1468259,-27.64506562,Completed,No Blockage,Broken-down Vehicle,3:39:28 26-07-2019
-16595327,153.0566559,-27.52718735,In Progress,No Blockage,Recurring,3:39:31 26-07-2019
-16595339,153.1297207,-26.71726253,Completed,No Blockage,Non-recurring,3:41:56 26-07-2019
-16595343,152.9627991,-27.50071526,In Progress,No Blockage,Recurring,3:42:36 26-07-2019
-16595344,152.9773712,-27.56687927,In Progress,No Blockage,Recurring,3:43:02 26-07-2019
-16595353,153.0110626,-27.46382523,In Progress,No Blockage,Recurring,3:43:47 26-07-2019
-16595356,153.0359039,-27.46915436,In Progress,No Blockage,Recurring,3:44:18 26-07-2019
-16595358,153.0415039,-27.31292725,In Progress,No Blockage,Recurring,3:44:46 26-07-2019
-16595359,153.0486018,-26.77252944,In Progress,No Blockage,Recurring,3:44:55 26-07-2019
-16595361,153.1162567,-27.45082474,In Progress,No Blockage,Recurring,3:45:16 26-07-2019
-16595385,153.0209127,-26.66921725,In Progress,Unknown,Roadworks,3:58:56 26-07-2019
-16595392,153.0953893,-27.37725916,Completed,No Blockage,Broken-down Vehicle,4:03:16 26-07-2019
-16595400,153.0694319,-27.55333873,Completed,No Blockage,Broken-down Vehicle,4:06:57 26-07-2019
-16595402,153.108041,-27.237604,In Progress,Unknown,None,4:07:29 26-07-2019
-16595434,153.0461847,-26.72986405,In Progress,No Blockage,Recurring,4:24:09 26-07-2019
-16595446,153.0430133,-26.72213233,In Progress,No Blockage,Debris/Obstruction/Spill,4:27:49 26-07-2019
-16595450,153.4669404,-28.12848949,In Progress,No Blockage,Recurring,4:32:27 26-07-2019
-16595453,153.3144149,-27.89243016,In Progress,No Blockage,Recurring,4:33:22 26-07-2019
-16595461,153.0399484,-27.49949023,Completed,Partially Blocked,Primary Crash,4:37:27 26-07-2019
-16595508,152.9106099,-26.43332878,In Progress,Unknown,Debris/Obstruction/Spill,4:45:43 26-07-2019
-16595519,153.3414558,-27.94955982,In Progress,No Blockage,Broken-down Vehicle,4:52:39 26-07-2019
-16595526,153.3387532,-27.94346064,In Progress,No Blockage,Broken-down Vehicle,4:53:25 26-07-2019
-16595531,153.34286,-27.95229945,Completed,No Blockage,Broken-down Vehicle,4:54:18 26-07-2019
-16595540,152.9953947,-26.67319013,In Progress,No Blockage,Recurring,4:57:29 26-07-2019
-16595560,153.0555037,-27.48894378,In Progress,Unknown,Equipment Fault,5:05:25 26-07-2019
+16636619,153.0329059,-27.659469,In Progress,Unknown,Broken-down Vehicle,14:32:44 15-08-2019
+16636607,153.3995639,-28.09863904,In Progress,No Blockage,Recurring,14:27:29 15-08-2019
+16636603,152.9634552,-27.49888039,In Progress,Unknown,Broken-down Vehicle,14:25:58 15-08-2019
+16636595,153.3898917,-27.97611597,In Progress,Partially Blocked,Roadworks,14:12:31 15-08-2019
+16636526,152.9627991,-27.50071526,In Progress,No Blockage,Broken-down Vehicle,13:56:20 15-08-2019
+16636465,153.1130609,-26.69377983,Completed,No Blockage,Broken-down Vehicle,13:36:53 15-08-2019
+16636441,153.3147516,-27.89121798,In Progress,No Blockage,Broken-down Vehicle,13:27:37 15-08-2019
+16636438,152.964433,-26.68419759,Completed,No Blockage,Primary Crash,13:27:35 15-08-2019
+16636419,153.0271912,-27.46859169,In Progress,Partially Blocked,Illegally Parked Vehicle,13:27:24 15-08-2019
+16636270,153.1195526,-27.60734177,In Progress,Unknown,None,13:03:15 15-08-2019
+16636269,153.0465831,-27.49952705,In Progress,Partially Blocked,Primary Crash,13:02:30 15-08-2019
+16636266,152.8388266,-26.3877387,Aborted,Unknown,None,13:01:51 15-08-2019
+16636264,153.2753906,-28.1443882,In Progress,Unknown,None,13:01:14 15-08-2019
+16636258,153.2362061,-28.225317,In Progress,Unknown,None,12:58:45 15-08-2019
+16636252,153.183372,-27.51702275,In Progress,Unknown,Roadworks,12:54:44 15-08-2019
+16636244,153.0427094,-26.66327286,Completed,Unknown,Broken-down Vehicle,12:47:14 15-08-2019
+16636223,152.941452,-27.54978561,In Progress,No Blockage,Broken-down Vehicle,12:11:49 15-08-2019
+16636218,153.0116577,-27.45996475,Completed,No Blockage,Debris/Obstruction/Spill,12:08:39 15-08-2019
+16636207,153.1195526,-27.60734177,In Progress,Unknown,None,11:59:20 15-08-2019
+16636143,153.1933899,-27.69301605,In Progress,No Blockage,Broken-down Vehicle,11:52:40 15-08-2019
+16636138,153.1016374,-27.57803249,In Progress,Unknown,None,11:51:18 15-08-2019
+16636128,153.26517,-27.80667,In Progress,Unknown,None,11:50:56 15-08-2019
+16636099,153.103652,-27.64204449,Completed,No Blockage,Debris/Obstruction/Spill,11:41:09 15-08-2019
+16636089,153.1653584,-27.65684568,Completed,No Blockage,Broken-down Vehicle,11:37:34 15-08-2019
+16636080,153.3169861,-27.90573502,Completed,No Blockage,Other,11:36:31 15-08-2019
+16636035,153.0768302,-27.34606937,Completed,Partially Blocked,Primary Crash,11:29:51 15-08-2019
+16636028,153.0892479,-26.71388911,Completed,Unknown,Debris/Obstruction/Spill,11:28:35 15-08-2019
+16635960,152.9833648,-27.4912384,Aborted,Unknown,Broken-down Vehicle,11:15:07 15-08-2019
+16635947,153.2309488,-27.74002653,Completed,No Blockage,Broken-down Vehicle,11:09:18 15-08-2019
+16635931,153.0206342,-27.48198272,Aborted,Unknown,Primary Crash,11:02:59 15-08-2019
+16635922,153.3334351,-27.99053383,In Progress,Unknown,Other,10:58:09 15-08-2019
+16635912,152.9630798,-27.50518491,Completed,Partially Blocked,Broken-down Vehicle,10:55:33 15-08-2019
+16635875,153.4075515,-27.9400726,Completed,Partially Blocked,Roadworks,10:18:42 15-08-2019
+16635869,153.0468292,-27.51607513,Completed,No Blockage,Debris/Obstruction/Spill,10:06:06 15-08-2019
+16635867,153.0345649,-27.4928988,Completed,No Blockage,Debris/Obstruction/Spill,10:04:42 15-08-2019
+16635836,153.039978,-27.50159645,Completed,Partially Blocked,Broken-down Vehicle,09:38:34 15-08-2019
+16635824,152.747136,-27.58815,Completed,Unknown,None,09:32:45 15-08-2019
+16635817,152.9776721,-27.06913279,Completed,No Blockage,Abandoned Vehicle,09:30:02 15-08-2019
+16635803,153.4078926,-28.03909563,In Progress,No Blockage,Roadworks,09:22:21 15-08-2019
+16635798,153.090251,-26.65366782,In Progress,Unknown,None,09:19:36 15-08-2019
+16635724,153.3637096,-28.0716126,Completed,No Blockage,Broken-down Vehicle,09:01:04 15-08-2019
+16635718,153.0685966,-27.56135364,Completed,Partially Blocked,Broken-down Vehicle,09:00:29 15-08-2019
+16635646,152.9483536,-27.58762279,Completed,No Blockage,Broken-down Vehicle,08:46:06 15-08-2019
+16635639,153.0200182,-27.48017311,Completed,Partially Blocked,Primary Crash,08:44:13 15-08-2019
+16635635,152.9410407,-27.54975192,Completed,Unknown,Broken-down Vehicle,08:43:45 15-08-2019
+16635627,153.2294149,-27.73694836,Completed,No Blockage,Broken-down Vehicle,08:41:15 15-08-2019
+16635556,153.0357693,-27.46069718,Completed,Partially Blocked,Primary Crash,08:32:36 15-08-2019
+16635551,153.0169281,-27.36083945,Completed,Partially Blocked,Primary Crash,08:32:07 15-08-2019
+16635545,153.0063587,-27.4944719,Completed,Partially Blocked,Primary Crash,08:30:20 15-08-2019
+16635532,153.0923552,-26.71116034,Completed,No Blockage,LUMS/VSL Intervention,08:27:44 15-08-2019
+16635529,153.115417,-27.574791,In Progress,Unknown,None,08:24:37 15-08-2019
+16635513,152.9953797,-26.67321614,Completed,No Blockage,Recurring,08:10:11 15-08-2019
+16635505,153.0284424,-27.47117233,Completed,No Blockage,Illegally Parked Vehicle,08:03:18 15-08-2019
+16635500,153.0463352,-26.75780983,Completed,Unknown,Recurring,08:01:47 15-08-2019
+16635490,153.331313,-27.92774854,Completed,No Blockage,Primary Crash,07:58:32 15-08-2019
+16635478,153.3626568,-28.06910824,Completed,No Blockage,Recurring,07:52:49 15-08-2019
+16635477,153.4115954,-27.98257647,Completed,Unknown,None,07:52:36 15-08-2019
+16635472,153.1786477,-27.80715886,In Progress,Blocked,Roadworks,07:48:52 15-08-2019
+16635469,153.3181957,-27.90953838,Completed,No Blockage,Debris/Obstruction/Spill,07:46:32 15-08-2019
+16635464,153.0370331,-27.45412254,Completed,Unknown,Illegally Parked Vehicle,07:45:03 15-08-2019
+16635456,153.4001021,-28.09898916,Completed,No Blockage,Recurring,07:42:05 15-08-2019
+16635449,153.3410648,-27.99363992,In Progress,Partially Blocked,Roadworks,07:41:15 15-08-2019
+16635440,153.323375,-27.91993309,Completed,No Blockage,Abandoned Vehicle,07:39:17 15-08-2019
+16635436,153.0260838,-27.47364571,Completed,Unknown,Illegally Parked Vehicle,07:38:15 15-08-2019
+16635434,153.4608172,-28.12039699,Completed,No Blockage,Recurring,07:37:31 15-08-2019
+16635428,153.3201333,-27.91486834,Completed,No Blockage,Recurring,07:36:14 15-08-2019
+16635403,153.0242969,-27.46163748,Completed,Unknown,Illegally Parked Vehicle,07:25:15 15-08-2019
+16635383,153.1180267,-27.60454941,Completed,No Blockage,Broken-down Vehicle,07:22:07 15-08-2019
+16635374,153.4784276,-28.14303399,Completed,No Blockage,Broken-down Vehicle,07:21:58 15-08-2019
+16635340,152.9989225,-26.67277564,Completed,Partially Blocked,Primary Crash,07:10:06 15-08-2019
+16635337,153.0180565,-27.26816684,Completed,Unknown,LUMS/VSL Intervention,07:09:36 15-08-2019
+16635293,152.9455907,-27.5395443,Completed,No Blockage,Broken-down Vehicle,06:56:36 15-08-2019
+16635259,152.9878309,-27.19572041,Completed,Unknown,LUMS/VSL Intervention,06:42:12 15-08-2019
+16635227,153.3286858,-27.9271923,Completed,No Blockage,Primary Crash,06:20:58 15-08-2019
+16635225,153.0514947,-27.32706555,Completed,No Blockage,Debris/Obstruction/Spill,06:20:03 15-08-2019
+16635213,153.4742012,-28.12337764,In Progress,Blocked,Roadworks,06:18:13 15-08-2019
+16635208,153.4351236,-28.04508561,In Progress,Partially Blocked,Roadworks,06:14:52 15-08-2019
+16635197,153.1427931,-27.64175055,Completed,No Blockage,Broken-down Vehicle,06:11:09 15-08-2019
+16635186,153.3291001,-27.92749873,Completed,Unknown,None,06:09:09 15-08-2019
+16635181,153.2403077,-27.75608499,Completed,No Blockage,Broken-down Vehicle,06:07:21 15-08-2019
+16635179,153.0586657,-27.33702482,Completed,No Blockage,Abandoned Vehicle,06:07:14 15-08-2019
+16635162,152.9664252,-27.56961743,Completed,No Blockage,Broken-down Vehicle,06:01:13 15-08-2019
+16635146,153.4663285,-28.11026531,In Progress,No Blockage,Roadworks,05:49:21 15-08-2019
+16635141,152.7589417,-27.58175468,Completed,Partially Blocked,Primary Crash,05:48:23 15-08-2019
+16635135,153.0180016,-26.70357975,Completed,Unknown,Broken-down Vehicle,05:41:04 15-08-2019
+16635132,153.0539983,-27.47514472,Completed,Unknown,Roadworks,05:28:35 15-08-2019
+16635114,153.074295,-27.33950043,Completed,No Blockage,Non-recurring,05:07:42 15-08-2019
+16635113,153.0109253,-27.46394348,Completed,No Blockage,Non-recurring,05:07:20 15-08-2019
+16635112,153.0589905,-27.47279358,Completed,No Blockage,Non-recurring,05:06:55 15-08-2019
+16635110,152.9355011,-27.58105469,Completed,No Blockage,Non-recurring,05:06:29 15-08-2019
+16635109,152.9478149,-27.59232903,Completed,No Blockage,Non-recurring,05:06:06 15-08-2019
+16635107,153.1251221,-27.61917686,Completed,No Blockage,Non-recurring,05:05:42 15-08-2019
+16635104,153.0489565,-27.47702864,In Progress,Partially Blocked,Project / Permit Works,05:03:51 15-08-2019
+16635088,153.4646613,-28.12325417,Completed,Unknown,Unauthorised Access,02:26:13 15-08-2019
+16635065,153.3478657,-27.96087512,Completed,Partially Blocked,Roadworks,00:54:21 15-08-2019
+16635058,152.973977,-27.48045935,Completed,No Blockage,Unauthorised Access,00:42:48 15-08-2019
+16635030,153.333102,-27.99022453,In Progress,Unknown,Other,00:02:27 15-08-2019
+16635029,153.3349448,-27.99105445,In Progress,Unknown,Other,00:01:45 15-08-2019
+16635027,153.334202,-27.99130981,In Progress,Unknown,Other,00:01:08 15-08-2019
+16635019,153.0001107,-27.42514823,Completed,Both Directions Blocked,Fire/Smoke,23:59:30 14-08-2019
+16635014,153.2666657,-27.8065521,Completed,Partially Blocked,Roadworks,23:48:33 14-08-2019
+16635005,152.9969922,-26.91149539,Completed,No Blockage,Unauthorised Access,23:34:00 14-08-2019
+16634997,153.2612027,-27.79723422,Completed,No Blockage,Broken-down Vehicle,23:16:29 14-08-2019
+16634993,153.3496619,-27.96078767,Completed,No Blockage,Broken-down Vehicle,23:08:40 14-08-2019
+16634990,153.3534637,-27.9614629,In Progress,Unknown,None,23:04:31 14-08-2019
+16634987,153.1923019,-27.73167174,Completed,No Blockage,Roadworks,23:00:45 14-08-2019
+16634967,153.3606852,-28.06356229,Completed,No Blockage,Unauthorised Access,21:59:56 14-08-2019
+16634964,153.429651,-27.98863357,Completed,Unknown,Primary Crash,21:58:45 14-08-2019
+16634954,152.8478939,-27.59702101,Completed,No Blockage,Broken-down Vehicle,21:52:57 14-08-2019
+16634936,152.9774948,-27.02988876,Completed,No Blockage,Broken-down Vehicle,21:38:06 14-08-2019
+16634929,153.2612027,-27.79723422,Completed,No Blockage,Broken-down Vehicle,21:31:23 14-08-2019
+16634920,153.0726717,-27.51575781,Completed,Partially Blocked,Primary Crash,21:25:04 14-08-2019
+16634913,153.1916931,-27.71448342,Completed,Partially Blocked,Roadworks,21:17:32 14-08-2019
+16634902,153.1844183,-27.67524945,Completed,No Blockage,Broken-down Vehicle,20:43:45 14-08-2019
+16634895,153.0293427,-27.37908554,Completed,Partially Blocked,Project / Permit Works,20:31:44 14-08-2019
+16634867,153.1717754,-27.66318365,Completed,No Blockage,Broken-down Vehicle,20:03:27 14-08-2019
+16634855,153.0492287,-27.3300549,Completed,Partially Blocked,Roadworks,19:50:29 14-08-2019
+16634840,153.0984593,-27.5749055,Completed,Both Directions Blocked,Project / Permit Works,19:43:18 14-08-2019
+16634825,152.9776721,-27.06913279,Completed,No Blockage,Primary Crash,19:39:20 14-08-2019
+16634816,153.3778089,-28.08303238,Completed,Partially Blocked,Broken-down Vehicle,19:37:01 14-08-2019
+16634808,153.0510406,-27.3290863,Completed,No Blockage,Broken-down Vehicle,19:34:19 14-08-2019
+16634798,153.0591961,-27.53767801,Completed,No Blockage,Broken-down Vehicle,19:29:01 14-08-2019
+16634794,153.042414,-27.64429946,Completed,Partially Blocked,Project / Permit Works,19:23:24 14-08-2019
+16634790,153.3103923,-27.86171253,Completed,No Blockage,Debris/Obstruction/Spill,19:20:38 14-08-2019
+16634784,153.3896499,-28.09086114,Completed,Partially Blocked,Roadworks,19:15:39 14-08-2019
+16634780,153.2991843,-27.85218808,In Progress,Unknown,None,19:10:22 14-08-2019
+16634777,153.3618235,-28.06752567,Completed,No Blockage,Roadworks,19:08:11 14-08-2019
+16634772,153.0588448,-26.71107137,In Progress,Unknown,None,19:01:38 14-08-2019
+16634768,153.3698679,-27.94644355,Completed,Blocked,Roadworks,18:55:19 14-08-2019
+16634763,153.2253731,-27.52343841,Completed,Partially Blocked,Roadworks,18:38:39 14-08-2019
+16634759,153.216145,-27.56926231,Completed,Partially Blocked,Roadworks,18:35:48 14-08-2019
+16634751,153.3264876,-27.92349514,Completed,No Blockage,Primary Crash,18:25:23 14-08-2019
+16634684,153.3603464,-27.92669163,Completed,Partially Blocked,Primary Crash,17:53:14 14-08-2019
+16634658,153.3524402,-28.03418542,Completed,No Blockage,Broken-down Vehicle,17:38:10 14-08-2019
+16634644,153.0616025,-27.38388424,Completed,No Blockage,Debris/Obstruction/Spill,17:30:21 14-08-2019
+16634624,153.0743208,-26.59704086,Completed,Partially Blocked,Primary Crash,17:27:53 14-08-2019
+16634613,153.4794097,-28.14447626,Completed,Partially Blocked,Broken-down Vehicle,17:25:09 14-08-2019
+16634608,153.1018372,-27.57950401,Completed,No Blockage,Broken-down Vehicle,17:24:41 14-08-2019
+16634598,153.3144764,-27.88979531,Completed,No Blockage,Other,17:08:48 14-08-2019
+16634572,153.0621643,-27.28554916,Completed,No Blockage,Broken-down Vehicle,16:49:38 14-08-2019
+16634566,153.3418947,-27.94966445,Completed,No Blockage,Broken-down Vehicle,16:45:34 14-08-2019
+16634562,153.0460004,-26.72033997,Completed,No Blockage,Recurring,16:44:40 14-08-2019
+16634532,153.0601959,-27.54178238,Completed,No Blockage,Broken-down Vehicle,16:39:16 14-08-2019
+16634529,153.2221123,-27.72761533,Completed,No Blockage,Non-recurring,16:38:36 14-08-2019
+16634520,153.1923243,-27.69094197,Completed,No Blockage,Broken-down Vehicle,16:32:03 14-08-2019
+16634501,152.9778293,-27.1551977,Completed,No Blockage,Non-recurring,16:17:21 14-08-2019
+16634491,153.3428916,-27.95238767,Completed,No Blockage,Primary Crash,16:15:32 14-08-2019
+16634475,153.3062889,-27.8477391,Completed,No Blockage,Broken-down Vehicle,16:06:16 14-08-2019
+16634463,152.9502802,-27.11093296,Completed,No Blockage,Primary Crash,15:58:25 14-08-2019
+16634459,153.4133276,-28.11231902,Completed,No Blockage,Recurring,15:56:31 14-08-2019
+16634455,153.0931497,-26.71084194,Completed,No Blockage,LUMS/VSL Intervention,15:52:32 14-08-2019
+16634438,153.3716469,-27.96428542,Completed,No Blockage,Recurring,15:42:43 14-08-2019
+16634430,153.1018372,-27.57950401,Completed,No Blockage,Broken-down Vehicle,15:36:15 14-08-2019
+16634415,153.31878,-27.9110527,Completed,No Blockage,Broken-down Vehicle,15:25:34 14-08-2019
+16634412,153.1147402,-26.79912245,Completed,No Blockage,Recurring,15:24:36 14-08-2019
+16634392,153.0650357,-26.65909327,Completed,No Blockage,Broken-down Vehicle,15:14:16 14-08-2019
+16634387,153.2794096,-28.03505424,Completed,Unknown,Planned Event,15:11:47 14-08-2019
+16634378,152.9958534,-26.67308131,Completed,No Blockage,Recurring,15:06:15 14-08-2019
+16634375,153.4626206,-28.12175683,Completed,No Blockage,Recurring,15:05:29 14-08-2019
+16634366,153.31308,-27.86728899,Completed,No Blockage,Unauthorised Access,14:59:13 14-08-2019
+16634355,153.0489029,-26.77251221,Completed,No Blockage,Recurring,14:54:59 14-08-2019
+16634348,153.1240322,-26.7005645,In Progress,Blocked,Roadworks,14:47:23 14-08-2019
+16634333,152.95578,-27.51542854,Completed,Partially Blocked,Broken-down Vehicle,14:34:59 14-08-2019

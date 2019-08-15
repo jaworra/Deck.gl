@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>Road Incidents in QLD</title>
+    <title>Live Road Incidents in QLD</title>
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
 
     <script src="https://unpkg.com/deck.gl@^6.2.0/deckgl.min.js"></script>
@@ -16,27 +16,25 @@
 
     <style type="text/css">
       body { font-family: Helvetica, Arial, sans-serif; width: 100vw; height: 100vh; margin: 0; }
-	    #TMR-panel { position: absolute; color: white; top: 10px; right: 0; margin: 0; font-size: 10px; line-height: 1.5; z-index: 1;}
-      #TIME-clock { position: absolute; color: white; top: 0px; left: 10; margin: 0; font-size: 10px; line-height: 1.5; z-index: 1;}
+	    #TMR-panel { position: absolute; color: white; top: 10px; left: 0; margin: 0; font-size: 10px; line-height: 1.5; z-index: 1;}
+      #TIME-clock { position: absolute; color: white; top: 0px; right: 10; margin: 0; font-size: 10px; line-height: 1.5; z-index: 1;}
 	    #tooltip { font-family: Helvetica, Arial, sans-serif; position: absolute; padding: 4px; margin: 8px; background: rgba(0, 0, 0, 0.8);color: #fff;max-width: 300px;font-size: 10px; z-index: 9;pointer-events: none;}
       #control-panel { position: absolute; background: #fff; bottom: 0; left: 0; margin: 12px; padding: 10px; font-size: 12px; line-height: 1.5; z-index: 1; }
     </style>
   </head>
   <body>
-
-	<div id="TMR-panel"><text x="10%" y="10%" style="dominant-baseline:central; text-anchor:right; font-size: 17px; font-family: Arial, Helvetica, sans-serif;"> TMR | Road Operations</text></div>
-	<div id="tooltip"> </div>
-	<div id="TIME-clock">	</div>
-  <div id="control-panel">
-    <div>
-  <text y="18" x="100%" y="100%" style="dominant-baseline:central;font-weight: bold; text-anchor:left; font-size: 15px; font-family: Arial, Helvetica, sans-serif;">Current Incidents</text>
-</div>
-  <text y="18" x="100%" y="100%" style="dominant-baseline:central;font-weight: normal; text-anchor:left; font-size: 10px; font-family: Arial, Helvetica, sans-serif;">Sourced from streams gateway </text>
-	  <br></br></div>
+    <div id="TMR-panel"> <a href="https://public-test-road.s3-ap-southeast-2.amazonaws.com/Incidents_homepage.html" style="color:white; text-decoration:none; dominant-baseline:central; text-anchor:left; font-size: 17px; font-family: Arial, Helvetica, sans-serif;"> TMR | Road Operations</a></div>
+    <div id="tooltip"></div>
+  	<div id="TIME-clock">	</div>
+    <div id="control-panel">
+      <div>
+    <text y="18" x="100%" y="100%" style="dominant-baseline:central;font-weight: bold; text-anchor:left; font-size: 15px; font-family: Arial, Helvetica, sans-serif;">Current Incidents</text>
+  </div>
+    <text y="18" x="100%" y="100%" style="dominant-baseline:central;font-weight: normal; text-anchor:left; font-size: 10px; font-family: Arial, Helvetica, sans-serif;">Sourced from streams gateway, rolling 24hour</text>
+     <br></br>
+  </div></div>
 
   <script type="text/babel">
-  //const element = <h1>Hello React!</h1>
-  //ReactDOM.render(element, document.getElementById('root'));
 
   function tick() {
       const element = (<h1>{new Date().toLocaleTimeString()}</h1>);
@@ -52,8 +50,6 @@
   addData();
 
   </script>
-  </body>
-
 
 
   <script type="text/javascript">
@@ -62,17 +58,15 @@
 	mapboxgl.accessToken = 'pk.eyJ1IjoiamF3b3JyYSIsImEiOiJjanh6ZXBoZjQwMjlvM25wamN3eWw4aHowIn0.sfurxwTqAA9OqJr72WXjAg';
 
     const {MapboxLayer, HexagonLayer} = deck;
-
     const map = new mapboxgl.Map({
       container: document.body,
       style: 'mapbox://styles/mapbox/dark-v9',
-      center: [152.0177, -27.4879],
-      zoom: 7, // should set the zoom extents based on the inputu coordinates.
-      //pitch: 60.5
+      center: [153.0177, -27.4],
+      zoom: 8.6, // should set the zoom extents based on the inputu coordinates.
     });
 
-  const DATA_URL = 'https://road-ops-public.s3-ap-southeast-2.amazonaws.com/liveIncidents.csv';
-	<!--const DATA_URL = '../heatmap-data.csv'; -->
+    //const DATA_URL = 'https://road-ops-public.s3-ap-southeast-2.amazonaws.com/liveIncidents.csv';
+    const DATA_URL = 'https://public-test-road.s3-ap-southeast-2.amazonaws.com/liveIncidents.csv';  // When you go live change uncomment this
     const OPTIONS = ['radius', 'coverage', 'upperPercentile'];
     const COLOR_RANGE = [
       [1, 152, 189],
@@ -136,18 +130,18 @@ const myDeckLayer_inProgress = new MapboxLayer({
 
   	map.on('load', () => {
     map.addLayer(myDeckLayer_inProgress);
-  	map.addLayer(myDeckLayer_Compeleted);
+  	//map.addLayer(myDeckLayer_Compeleted);
   	});
 
-        OPTIONS.forEach(key => {
-          document.getElementById(key).oninput = (evt) => {
-            const value = Number(evt.target.value);
-            document.getElementById(key + '-value').innerHTML = value;
-            if (hexagonLayer) {
-              hexagonLayer.setProps({[key]: value});
-            }
-          };
-        });
+//        OPTIONS.forEach(key => {
+//          document.getElementById(key).oninput = (evt) => {
+//            const value = Number(evt.target.value);
+//            document.getElementById(key + '-value').innerHTML = value;
+//            if (hexagonLayer) {
+//              hexagonLayer.setProps({[key]: value});
+//            }
+//          };
+//        });
 
     	//apply_dateselector();
       //{object.classification}${"<br />"}${object.loggedTime}${"<br />"}
@@ -156,7 +150,7 @@ const myDeckLayer_inProgress = new MapboxLayer({
     	  if (object) {
     		tooltip.style.left = `${x}px`;
     		tooltip.style.top = `${y}px`;
-    		tooltip.innerHTML = `${object.status}:${object.id}${"<br />"}${object.blockageType}${"<br />"}${object.classification}${"<br />"}${object.loggedTime}${"<br />"}`;
+    		tooltip.innerHTML = `${object.status}: ${object.id}${"<br />"}${object.blockageType}${"<br />"}${object.classification}${"<br />"}${object.loggedTime}${"<br />"}`;
     	  } else {
     		tooltip.innerHTML = '';
     	  }
@@ -173,36 +167,14 @@ const myDeckLayer_inProgress = new MapboxLayer({
     	  }
     	}
 
+      // This refresh every x seconds or x mins  - Need to change this react - rending
+      const sec_5 = 5000
+      const sec_30 = 30000
+      const min_1 = 60000
+      setTimeout(function(){
+        window.location.reload(1);
+      }, min_1);
 
-
-/*
-// This refresh every x seconds or x mins  - future works look into rending layers instead of referesh
-
-const sec_5 = 5000
-const sec_30 = 30000
-const min_1 = 60000
-  setTimeout(function(){
-   window.location.reload(1);
-}, sec_30);
-
-*/
-
-
-
-/*
-// Using this method as I don't know how to not call on start up...
-// Need to come back to this.
-var i = 1
-function apply_dateselector(){
-if(i != 1) {
-	//alert(i)
-
-	}
-	i++
-
-}
-*/
-
-
-        </script>
-      </html>
+      </script>
+    </body>
+</html>

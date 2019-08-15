@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Page Title</title>
+<title>Current Incidents</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="https://d3js.org/d3.v5.min.js"></script>
@@ -37,7 +37,9 @@ body {
 
 /* Increase the font size of the heading */
 .header h1 {
-  font-size: 40px;
+  font-size: 25px;
+  font-family: Tahoma, Geneva, sans-serif;
+  text-decoration: normal;
 }
 
 /* Sticky navbar - toggles between relative and fixed, depending on the scroll position. It is positioned relative until a given offset position is met in the viewport - then it "sticks" in place (like position:fixed). The sticky value is not supported in IE or Edge 15 and earlier versions. However, for these versions the navbar will inherit default position */
@@ -55,7 +57,7 @@ body {
   display: block;
   color: white;
   text-align: center;
-  padding: 14px 20px;
+  padding: 5px 5px;
   text-decoration: none;
 }
 
@@ -143,7 +145,7 @@ font: 12px sans-serif;
 }
 td {
 border: 1px black solid;
-padding: 5px;
+padding: 2px;
 }
 
 
@@ -168,20 +170,18 @@ padding: 5px;
 
 <body>
 <div class="header">
-  <h1>INCIDENTS</h1>
-  <p><b>LIVE</b> Transport Disruptions Dashboard</p>
+  <h1>Current SIMS incidents (SEQ)</h1>
 </div>
 
 <div class="navbar">
-  <a href="#" class="active">Home</a>
-  <a href="https://public-test-road.s3-ap-southeast-2.amazonaws.com/RoadsOps-Live-Incidents.html">Live Visualisation</a>
+  <a href="#" class="active">List View</a>
+  <a href="https://public-test-road.s3-ap-southeast-2.amazonaws.com/RoadsOps-Live-Incidents.html">Map View</a>
   <a href="https://public-test-road.s3-ap-southeast-2.amazonaws.com/RoadsOps-Crashes.html" class="right">Historic Visualisation</a>
 </div>
 
-<div class="row">
+<div class="row" margin: 2px>
 
-  <div class="main">
-    <h2>IN PROGRESS</h2>
+  <div class="main" margin: 2px>
     <h3 id="demo"></h3>
     <script type="text/babel">
     function tick() {
@@ -201,6 +201,7 @@ padding: 5px;
     var rows  = d3.csvParseRows(data),
     table = d3.select('body').append('table')
    .style("border-collapse", "collapse")
+   .style("width", "100%")
    .style("border", "2px black solid");
 
     // headers
@@ -210,7 +211,7 @@ padding: 5px;
     .enter().append("th")
     .text(function(d) { return d; })
     .style("border", "1px black solid")
-    .style("padding", "25px")
+    .style("padding", "5px")
     .style("background-color", "lightgray")
     .style("font-weight", "bold")
     .style("text-transform", "uppercase");
@@ -223,7 +224,7 @@ padding: 5px;
     .data(function(d){return d;})
     .enter().append("td")
     .style("border", "1px black solid")
-    .style("padding", "5px")
+    .style("padding", "2px")
     .on("mouseover", function(){
     d3.select(this).style("background-color", "powderblue");
     })
@@ -231,7 +232,7 @@ padding: 5px;
     d3.select(this).style("background-color", "white");
     })
     .text(function(d){return d;})
-    .style("font-size", "12px");
+    .style("font-size", "11px");
 
      console.log(rows)
     });

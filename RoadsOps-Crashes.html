@@ -2,7 +2,7 @@
   <head>
     <title>Road Crashes in QLD</title>
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
-    
+
     <script src="https://unpkg.com/deck.gl@^6.2.0/deckgl.min.js"></script>
     <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v0.50.0/mapbox-gl.js"></script>
     <link rel="stylesheet" type="text/css" href="https://api.tiles.mapbox.com/mapbox-gl-js/v0.50.0/mapbox-gl.css">
@@ -24,7 +24,7 @@
         font-size: 10px;
         z-index: 9;
         pointer-events: none;
-      }	  
+      }
     </style>
   </head>
 
@@ -34,11 +34,11 @@
 		<text y="18" x="100%" y="100%" style="dominant-baseline:central;font-weight: bold; text-anchor:left; font-size: 15px; font-family: Arial, Helvetica, sans-serif;">Queensland Incident  Road Safety</text>
 	  </div>
 	  <br>
-	  <div>  
+	  <div>
 		<text y="18" x="100%" y="100%" style="dominant-baseline:central;font-weight: normal; text-anchor:left; font-size: 10px; font-family: Arial, Helvetica, sans-serif;">Road Crashes in QLD from 2010. </text>
 	  </div>
 
-	  <div>  
+	  <div>
 		<text y="18" x="100%" y="100%" style="dominant-baseline:central;font-weight: normal; text-anchor:left; font-size: 10px; font-family: Arial, Helvetica, sans-serif;">The layer aggregates data within the boundary of each hexagon cell</text>
 
 	  	  </div>
@@ -59,9 +59,7 @@
         <span id="upperPercentile-value"></span>
       </div>
     </div>
-	<div id="TMR-panel">
-			<text y="18" x="100%" y="100%" style="dominant-baseline:central; text-anchor:left; font-size: 17px; font-family: Arial, Helvetica, sans-serif;"> TMR | Road Operations</text> 		
-	</div>
+  <div id="TMR-panel"> <a href="https://public-test-road.s3-ap-southeast-2.amazonaws.com/Incidents_homepage.html" style="color:white; text-decoration:none; dominant-baseline:central; text-anchor:left; font-size: 17px; font-family: Arial, Helvetica, sans-serif;"> TMR | Road Operations</a></div>
 	<div id="tooltip"></div>
   </body>
 
@@ -79,8 +77,7 @@
       pitch: 60.5
     });
 
-    <!--const DATA_URL = '
-	const DATA_URL = 'https://road-ops-public.s3-ap-southeast-2.amazonaws.com/crash-data.csv';
+	  const DATA_URL = 'https://public-test-road.s3-ap-southeast-2.amazonaws.com/heatmap-data.csv';
     const OPTIONS = ['radius', 'coverage', 'upperPercentile'];
     const COLOR_RANGE = [
       [1, 152, 189],
@@ -103,8 +100,8 @@
 
 	<!-- Coverage = Hexagon radius multiplier, clamped between 0 - 1. The final radius of hexagon is calculated by coverage * radius. Note: coverage does not affect how points are binned. The radius of the bin is determined only by the radius property.-->
 	<!-- UpperPercentile = Filter bins and re-calculate color by upperPercentile. Hexagons with color value larger than the upperPercentile will be idden.-->
-	
-    let hexagonLayer;			
+
+    let hexagonLayer;
     map.on('load', () => {
       hexagonLayer = new MapboxLayer({
         type: HexagonLayer,
@@ -126,7 +123,7 @@
 		pickable: true,
 		onHover: onHover,
 		});
-		
+
       map.addLayer(hexagonLayer, 'waterway-label');
     });
 
@@ -139,17 +136,17 @@
         }
       };
     });
-	
+
 	function onHover (info) {
 	  const {x, y, object} = info;
 	  if (object) {
-		tooltip.style.left = `${x}px`;    
+		tooltip.style.left = `${x}px`;
 		tooltip.style.top = `${y}px`;
 		tooltip.innerHTML = `${object.points.length} crash reports`;
-	  } else { 
+	  } else {
 		tooltip.innerHTML = '';
 	  }
-	}	
-	
+	}
+
   </script>
 </html>
