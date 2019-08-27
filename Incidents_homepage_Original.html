@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Current Incidents</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://d3js.org/d3.v5.min.js"></script>
+<link rel="shortcut icon" href="#" />
+
+
+
+<!-- React load js -->
+<script src= "https://unpkg.com/react@16/umd/react.production.min.js"></script>
+<!-- Load React DOM-->
+<script src= "https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+<!-- Load Babel Compiler -->
+<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+/* Style the body */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+}
+
+/* Header/logo Title */
+.header {
+  padding: 5px;
+  text-align: center;
+  background: #333;
+  color: white;
+}
+
+/* Increase the font size of the heading */
+.header h1 {
+  font-size: 25px;
+  font-family: Tahoma, Geneva, sans-serif;
+  text-decoration: normal;
+}
+
+/* Sticky navbar - toggles between relative and fixed, depending on the scroll position. It is positioned relative until a given offset position is met in the viewport - then it "sticks" in place (like position:fixed). The sticky value is not supported in IE or Edge 15 and earlier versions. However, for these versions the navbar will inherit default position */
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+}
+
+/* Style the navigation bar links */
+.navbar a {
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 5px 5px;
+  text-decoration: none;
+}
+
+
+/* Right-aligned link */
+.navbar a.right {
+  float: right;
+}
+
+/* Change color on hover */
+.navbar a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Active/current link */
+.navbar a.active {
+  background-color: #666;
+  color: white;
+}
+
+/* Column container */
+.row {
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  -ms-flex-wrap: wrap; /* IE10 */
+  flex-wrap: wrap;
+}
+
+/* Create two unequal columns that sits next to each other */
+/* Sidebar/left column */
+.side {
+  -ms-flex: 30%; /* IE10 */
+  flex: 30%;
+  background-color: #f1f1f1;
+  padding: 20px;
+}
+
+/* Main column */
+.main {
+  -ms-flex: 70%; /* IE10 */
+  flex: 70%;
+  background-color: white;
+  padding: 10px;
+}
+
+/* Fake image, just for this example */
+.fakeimg {
+  background-color: #aaa;
+  width: 100%;
+  padding: 20px;
+}
+
+/* Footer */
+.container {
+  background-color: #aaa;
+  width: 100%;
+  padding: 20px;
+}
+
+
+/* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 700px) {
+  .row {
+    flex-direction: column;
+  }
+}
+
+/* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
+@media screen and (max-width: 400px) {
+  .navbar a {
+    float: none;
+    width: 100%;
+  }
+}
+
+table {
+margin-left:auto;
+margin-right:auto;
+
+text-align:center;
+border-collapse: collapse;
+border: 2px black solid;
+font: 12px sans-serif;
+}
+td {
+border: 1px black solid;
+padding: 2px;
+}
+
+
+</style>
+
+<style type="text/css">
+#topright {
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: block;
+    height: 125px;
+    width: 90px;
+    background-image: url('TMR logo.png');
+    background-repeat: no-repeat;
+    text-indent: -999em;
+    text-decoration: none;
+}
+</style>
+<a id="topright" href="#" title="TopRight">Top Right Link Text</a>
+</head>
+
+<body>
+<div class="header">
+  <h1>Current SIMS incidents (SEQ)</h1>
+</div>
+
+<div class="navbar">
+  <a href="#" class="active">List View </a>
+  <a href="https://public-test-road.s3-ap-southeast-2.amazonaws.com/RoadsOps-Live-Incidents.html">Map View</a>
+  <a href="https://public-test-road.s3-ap-southeast-2.amazonaws.com/RoadsOps-Crashes.html" class="right">Historic Visualisation</a>
+</div>
+
+<div class="row" margin: 2px>
+
+  <div class="main" margin: 2px>
+    <h3 id="demo"></h3>
+    <script type="text/babel">
+    function tick() {
+      const element = (<h3>{new Date().toLocaleTimeString()}</h3>);
+      ReactDOM.render(element, document.getElementById('demo'));
+    }
+    setInterval(tick, 1000);
+
+    </script>
+
+    <div id='container'style="height:2px;">
+
+    <script type="text/javascript">
+
+    // Check statistics
+    //First look at current time
+    //Find nearest stat time - csv
+    //load csv
+    var today = new Date();
+    var currTime = today.getHours()+"" + today.getMinutes()
+    console.log("Current Time:",currTime)
+
+    var coeff = 1000 * 60 * 15;
+    var date = new Date();  //or use any other date
+    var rounded = new Date(Math.round(date.getTime() / coeff) * coeff)
+    var rdTime = rounded.getHours()+"" + rounded.getMinutes()
+    console.log("rounded Time:",rounded)
+    console.log("rounded Time Hours:",rdTime)
+
+    var file = rdTime +'.csv'
+    console.log("load file:",file)
+    //var file = '1300.csv' // Need to uncomment this for production
+
+    //const DATA_URL = 'https://road-ops-public.s3-ap-southeast-2.amazonaws.com/1300.csv';
+    const DATA_URL = 'https://public-test-road.s3-ap-southeast-2.amazonaws.com/stat/'+file;
+    var currentCrash= 0.7
+    var currentInc= 40
+
+    d3.csv(DATA_URL).then(function(data) {
+//set array load - Sorted
+      sortedIn = data.map(d => d.IncidentCount).filter(d => d !== null && !isNaN(d)).sort(d3.ascending)
+      sortedCr = data.map(d => d.CrashCount).filter(d => d !== null && !isNaN(d)).sort(d3.ascending)
+
+//calulate statistics - Quatntile/Mean/Median
+      // comparison by weekday i.e Monday == Monday
+      incQ1 = d3.quantile(sortedIn, 0.25)
+      incMean = d3.mean(sortedIn)
+      incMedian = d3.median(sortedIn)
+      incQ3 = d3.quantile(sortedIn, 0.75)
+      crsQ1 = d3.quantile(sortedCr, 0.25)
+      crsMean = d3.mean(sortedCr)
+      crsMedian = d3.median(sortedCr)
+      crsQ3 = d3.quantile(sortedCr, 0.75)
+/*
+      console.log("incQ1",incQ1)
+      console.log("Mean",incMean)
+      console.log("Median",incMedian)
+      console.log("incQ3",incQ3)
+      console.log("crsQ1",crsQ1)
+      console.log("Mean",crsMean)
+      console.log("Median",crsMedian)
+      console.log("crsQ3",crsQ3)
+*/
+//compare statistic and output.
+      //Crash data
+      var statCrasTxt =""
+      if (crsQ1 > currentCrash){    // 0 > 0.7
+        console.log("Crashes less than normal")
+        d3.select("body").append("p").text("less crashes then normal.").style("color", "green");
+      }  else if (crsQ3 > currentCrash) {  // 1 > 0.7
+        console.log("Crashes average")
+        d3.select("body").append("p").text("normal crash performance").style("color", "orange");
+      } else {   // 1 < 0.7
+        console.log("More crashes than normal")
+        d3.select("body").append("p").text("Less crashes than normal.").style("color", "red");
+      }
+      //Incidents data
+      if (incQ1 > currentInc){    // 29.25 > 40
+        console.log("incidents less than normal")
+        d3.select("body").append("p").text("less incidents then normal.").style("color", "green");
+      }  else if (incQ3 > currentCrash) { // 35 > 40
+        console.log("incidents average")
+        d3.select("body").append("p").text("normal incidents performance").style("color", "orange");
+      } else {   // 1 < 0.7
+        console.log("More incidents than normal")
+        d3.select("body").append("p").text("Less incidents than normal.").style("color", "red");
+      }
+
+      });
+      //debug here
+            //console.log(indcidentMean);
+            //console.log(crashMean);//[4, 9, 12]
+
+      //Table generation
+      d3.text("liveIncidentsDash.csv").then(function(data) {
+      //console.log(data);
+      //var rows  = d3.csvParseRows(data);
+      var rows  = d3.csvParseRows(data),
+      table = d3.select('body').append('table')
+      .style("border-collapse", "collapse")
+      .style("width", "100%")
+      .style("border", "2px black solid");
+
+      // headers
+      table.append("thead").append("tr")
+      .selectAll("th")
+      .data(rows[0])
+      .enter().append("th")
+      .text(function(d) { return d; })
+      .style("border", "1px black solid")
+      .style("padding", "5px")
+      .style("background-color", "lightgray")
+      .style("font-weight", "bold")
+      .style("text-transform", "uppercase");
+
+      // data
+      table.append("tbody")
+      .selectAll("tr").data(rows.slice(1))
+      .enter().append("tr")
+      .selectAll("td")
+      .data(function(d){return d;})
+      .enter().append("td")
+      .style("border", "1px black solid")
+      .style("padding", "2px")
+      .on("mouseover", function(){
+      d3.select(this).style("background-color", "powderblue");
+      })
+      .on("mouseout", function(){
+      d3.select(this).style("background-color", "white");
+      })
+      .text(function(d){return d;})
+      .style("font-size", "11px");
+
+       console.log(rows)
+});
+
+
+    // This refresh every x seconds or x mins  - Need to change this react - rending
+    const sec_5 = 5000
+    const sec_30 = 30000
+    const min_1 = 60000
+    setTimeout(function(){
+      window.location.reload(1);
+    }, min_1);
+
+    </script>
+    </div>
+
+</body>
+</html>
