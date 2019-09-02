@@ -311,50 +311,37 @@ const DATA_URL = 'https://road-ops-public.s3-ap-southeast-2.amazonaws.com/liveIn
       console.log("Current Crashes:", currentCrash);
       console.log("Historic Crash","Q1:",crsQ1,"Mean:",crsMean,"Median",crsMedian,"Q3",crsQ3);
 
-      /*
-      console.log("Mean",incMean)
-      console.log("Median",incMedian)
-      console.log("incQ3",incQ3)
-      console.log("crsQ1",crsQ1)
-      console.log("Mean",crsMean)
-      console.log("Median",crsMedian)
-      console.log("crsQ3",crsQ3)
-      */
-
 //compare statistic and output.
       //Incidents data
       if (incQ1 > currentInc){    // 29.25 > 40
         insClr = "green";
-        insTxt = "Less incidents then normal.";
-      }  else if (incQ3 >= currentInc) { // 35 > 40
+        insTxt = "Less incidents then normal";
+      } else if (incQ3 >= currentInc) { // 35 > 40
         insClr = "orange";
-        insTxt = "Normal incidents performance.";
+        insTxt = "Normal incidents performance";
       } else {   // 1 < 0.7
         insClr = "red";
-        insTxt = "More incidents than normal.";
+        insTxt = "More incidents than normal";
       }
 
       //Crash data
       if (crsQ1 > currentCrash){    // 0 > 1
         crsClr = "green";
-        crsTxt = "Less crashes then normal.";
+        crsTxt = "Less crashes then normal";
       }  else if (crsQ3 >= currentCrash) {  // 1 >= 1
         crsClr = "orange";
-        crsTxt = "Normal crash performance.";
+        crsTxt = "Normal crash performance";
       } else {   // 1 <1
         crsClr = "red";
-        crsTxt = "More crashes than normal.";
+        crsTxt = "More crashes than normal";
       }
-
-      d3.select("body").append("p").text(insTxt).style("color", insClr);
-      d3.select("body").append("p").text(crsTxt).style("color", crsClr);
-
+      var txtSize = "16px"
+      d3.select("h1").append("p").text(insTxt).style("color", insClr).style("font-size", txtSize).append("span").text(" / ").style("color", "white").append("span").text(crsTxt).style("color", crsClr).style("font-size", txtSize);
+      //d3.select("h1").append("p").text(crsTxt).style("color", crsClr);
       });
 
 
-
-
-    });
+  });
 
 //---------------------------------------------------------------------------------------
 
