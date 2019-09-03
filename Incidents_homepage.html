@@ -272,6 +272,10 @@ const DATA_URL = 'https://road-ops-public.s3-ap-southeast-2.amazonaws.com/liveIn
     //Find nearest stat time - csv
     //load csv
     var today = new Date();
+
+    var gsDayNames = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+    var dayName = gsDayNames[today.getDay()];
+    console.log("Current Day:",dayName)
     var currTime = today.getHours()+"" + today.getMinutes()
     console.log("Current Time:",currTime)
 
@@ -291,12 +295,17 @@ const DATA_URL = 'https://road-ops-public.s3-ap-southeast-2.amazonaws.com/liveIn
     //var currentInc= 40
 
     d3.csv(STAT_URL).then(function(data) {
-//set array load - Sorted
+//set array load - Sorted;;
       sortedIn = data.map(d => d.IncidentCount).filter(d => d !== null && !isNaN(d)).sort(d3.ascending)
       sortedCr = data.map(d => d.CrashCount).filter(d => d !== null && !isNaN(d)).sort(d3.ascending)
+      console.log("sortedIn :",sortedIn)
+
+      sortedInDay = data.map(d => d.IncidentCount & d.Weekday == dayName ).filter(d => d !== null && !isNaN(d)).sort(d3.ascending)
+      console.log("sortedInDay :",sortedInDay)
 
 //calulate statistics - Quatntile/Mean/Median
-      // comparison by weekday i.e Monday == Monday
+      // comparison by weekday i.e Monday == Monday. Need to match by day
+
       incQ1 = d3.quantile(sortedIn, 0.25)
       incMean = d3.mean(sortedIn)
       incMedian = d3.median(sortedIn)
@@ -307,6 +316,7 @@ const DATA_URL = 'https://road-ops-public.s3-ap-southeast-2.amazonaws.com/liveIn
       crsQ3 = d3.quantile(sortedCr, 0.75)
 
       console.log("Current Inicidents:",currentInc);
+      console.log("Historic File load:",file);
       console.log("Historic Incidents:","Q1:",incQ1,"Mean:",incMean,"Median",incMedian,"Q3",incQ3);
       console.log("Current Crashes:", currentCrash);
       console.log("Historic Crash","Q1:",crsQ1,"Mean:",crsMean,"Median",crsMedian,"Q3",crsQ3);
