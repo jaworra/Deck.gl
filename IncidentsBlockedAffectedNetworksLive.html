@@ -1,30 +1,31 @@
 <html>
   <head>
     <title>RoadsOps Spatial Visualisation</title>
-    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no'/>
+
     <script src="https://unpkg.com/deck.gl@^6.3.4/deckgl.min.js"></script>
     <script src="https://d3js.org/d3.v5.min.js"></script>
     <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v0.50.0/mapbox-gl.js"></script>
+    <script src="./linksflow.json"></script>
 
     <link rel="stylesheet" type="text/css" href="https://api.tiles.mapbox.com/mapbox-gl-js/v0.50.0/mapbox-gl.css">
 
 	  <script type="application/javascript" src="https://unpkg.com/react@16.0.0/umd/react.development.js"></script>
 	  <script type="application/javascript" src="https://unpkg.com/react-dom@16.0.0/umd/react-dom.development.js"></script>
+    <script type="application/javascript" src="https://unpkg.com/babel-standalone@6.26.0/babel.min.js"></script>
 
-
-	<style>
-        body { margin:0; padding:0; }
-        #map { position:absolute; top:0; bottom:0; width:100%; }
+  	<style>
+          body { margin:0; padding:0; }
+          #map { position:absolute; top:0; bottom:0; width:100%; }
     </style>
-	<link href='tooltip.css' rel='stylesheet'/>
 
-  <script src="./linksflow.json"></script>
+  	<link href='tooltip.css' rel='stylesheet'/>
 
 	<!-- (loadtime) Babel, to convert our ECMAscript code in this file to browser-compatible code -->
 	<!-- NOTE: if we're running from file://, we can't use this Babel on external files -->
 	<!-- i.e. we can't do <script type='text/babel' src='somelocalfile'>, due to CORS -->
 	<!-- production -->
-		<script type="application/javascript" src="https://unpkg.com/babel-standalone@6.26.0/babel.min.js"></script>
+
 	<!-- dev -->
 		<!--script type="application/javascript" src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script -->
 
@@ -32,15 +33,6 @@
   <body>
 
 	<div id="map"></div>
-	<div id="topbanner" style="position:absolute; margin:0; padding:0; top:20px; width:100%; height:100px;">
-	 <svg width="100%" height="100%">
-		<rect x="0" y="0" style="width:100%; top:10px; height:80px; fill:#044B94; fill-opacity:0.4;"/>
-		<text y="18" fill="white" x="50%" y="50%" style="dominant-baseline:central; text-anchor:middle; font-size: 30px; font-family: Arial, Helvetica, sans-serif;"> Road Operations</text>
-		<text y="52" fill="white" x="50%" y="50px" style="dominant-baseline:central; text-anchor:middle; font-size: 20px; font-family: Arial, Helvetica, sans-serif;">Data Insights & Solution | Live Incidents Reports</text>
-	 </svg>
-	</div>
-
-
 	<div id="tooltip"></div>
 
   </body>
@@ -67,8 +59,6 @@ const map = new mapboxgl.Map({
   container: 'map',
   //style:  'https://maps.tilehosting.com/styles/darkmatter/style.json?key=G1rAl6L6Ro5U2azRRzQR', //
   style: 'https://maps.tilehosting.com/c/90fe4bd3-b57b-48e2-b53b-0dc33da14f43/styles/lessdarkmatter/style.json?key=G1rAl6L6Ro5U2azRRzQR',
-
-  //style: 'mapbox://styles/mapbox/light-v9', //contains icons too?
   center: [153.02, -27.5],
   zoom: 10,
   pitch: 40,
@@ -91,9 +81,8 @@ class Tooltip extends React.Component {
 	 this.setState({toolinfo: d});
 	}
 
-	render() {
-
-
+	render()
+  {
 		var d=this.state;
 		if (!('toolinfo' in d))
 			return  (<div></div>);
@@ -125,11 +114,9 @@ class Tooltip extends React.Component {
 
 ReactDOM.render(<Tooltip />, document.getElementById('tooltip'));
 
-
 function updateTooltip(d) {
 	thetooltip.assignContent(d);
 }
-
 
 var paths_for_display=[]
 var texts_for_display=[]
@@ -257,7 +244,10 @@ const incidentlayer = new MapboxLayer({
       getColor: d => [255, 0, 0]
   });
 
-map.addControl(new mapboxgl.NavigationControl());
+
+//Add control box
+//map.addControl(new mapboxgl.NavigationControl());
+
 
 //var layers=[pathlayer,textlayer];
 //map.getCanvas().style.cursor = 'default'; //doesn't work
@@ -467,7 +457,6 @@ function refresh()
 }
 
 setInterval(function(){ refresh(); }, 200);
-
 
 //adapted from https://stackoverflow.com/questions/42371991/javascript-how-to-calculate-midpoint-of-linestring
 function getPathToDistance(points, distance, tl) { //tl is total length

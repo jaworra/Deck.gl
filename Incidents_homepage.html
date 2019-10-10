@@ -8,7 +8,6 @@
 <link rel="shortcut icon" href="#" />
 
 
-
 <!-- React load js -->
 <script src= "https://unpkg.com/react@16/umd/react.production.min.js"></script>
 <!-- Load React DOM-->
@@ -50,15 +49,16 @@ body {
   position: -webkit-sticky;
   top: 0;
 }
-
 /* Style the navigation bar links */
 .navbar a {
   float: left;
   display: block;
   color: white;
   text-align: center;
-  padding: 5px 5px;
+  padding: 5px 20px;
   text-decoration: none;
+  border: 0.5px solid #666
+;
 }
 
 
@@ -175,7 +175,8 @@ padding: 2px;
 
 <div class="navbar">
   <a href="#" class="active">List View </a>
-  <a href="https://public-test-road.s3-ap-southeast-2.amazonaws.com/RoadsOps-Live-Incidents.html">Map View</a>
+  <a href="https://public-test-road.s3-ap-southeast-2.amazonaws.com/RoadsOps-Live-Incidents.html"> Map View</a>
+  <a href="https://public-test-road.s3-ap-southeast-2.amazonaws.com/dev/IncidentsBlockedAffectedNetworksLive.html"> High Priority</a>
   <a href="https://public-test-road.s3-ap-southeast-2.amazonaws.com/RoadsOps-Crashes.html" class="right">Historic Visualisation</a>
 </div>
 
@@ -196,8 +197,8 @@ padding: 2px;
 
     <script type="text/javascript">
 
-const DATA_URL = 'https://road-ops-public.s3-ap-southeast-2.amazonaws.com/liveIncidentsDash.csv'; //offline
-//const DATA_URL = 'https://public-test-road.s3-ap-southeast-2.amazonaws.com/liveIncidentsDash.csv';
+//const DATA_URL = 'https://road-ops-public.s3-ap-southeast-2.amazonaws.com/liveIncidentsDash.csv'; //offline
+const DATA_URL = 'https://public-test-road.s3-ap-southeast-2.amazonaws.com/liveIncidentsDash.csv';
 
 //Table generation
           //d3.text("liveIncidentsDash.csv").then(function(data) {
@@ -279,18 +280,18 @@ const DATA_URL = 'https://road-ops-public.s3-ap-southeast-2.amazonaws.com/liveIn
     var rdTime = ('0000' + (rounded.getHours() * 100 + rounded.getMinutes())).slice(-4);
     var file = rdTime +'.csv'  // unload this!!!
 
-    //const STAT_URL = 'https://public-test-road.s3-ap-southeast-2.amazonaws.com/stat/'+file;
-    const STAT_URL = 'https://road-ops-public.s3-ap-southeast-2.amazonaws.com/0800.csv';  // for offline
+    const STAT_URL = 'https://public-test-road.s3-ap-southeast-2.amazonaws.com/stat/'+file;
+    //const STAT_URL = 'https://road-ops-public.s3-ap-southeast-2.amazonaws.com/0800.csv';  // for offline
 
     d3.csv(STAT_URL).then(function(data) {
-      console.log("Every day:",data)  // load all data
+      //console.log("Every day:",data)  // load all data
       data = data.filter(function(d) { return d.Weekday == dayName }); //set data to only pull same day
-      console.log("Same day:",data) // just same day data
+      //console.log("Same day:",data) // just same day data
 
 //set array load - Sorted for statisics
       sortedIn = data.map(d => d.IncidentCount).filter(d => d !== null && !isNaN(d)).sort(d3.ascending)
       sortedCr = data.map(d => d.CrashCount).filter(d => d !== null && !isNaN(d)).sort(d3.ascending)
-      console.log("SortedIn :",sortedIn)
+
 //calulate statistics - Quatntile/Mean/Median
       incQ1 = d3.quantile(sortedIn, 0.25)
       incMean = d3.mean(sortedIn)
