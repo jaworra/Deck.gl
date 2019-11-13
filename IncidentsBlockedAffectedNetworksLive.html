@@ -186,8 +186,8 @@ const textlayer = new MapboxLayer({
 });
 
 //new layer with accident
-const DATA_URL = 'https://open-test-public.s3-ap-southeast-2.amazonaws.com/livelincidentsPriorites.csv'; // Dev
-//const DATA_URL = 'https://public-test-road.s3-ap-southeast-2.amazonaws.com/livelincidentsPriorites.csv'; // Prod
+//const DATA_URL = 'https://open-test-public.s3-ap-southeast-2.amazonaws.com/livelincidentsPriorites.csv'; // Dev
+const DATA_URL = 'https://public-test-road.s3-ap-southeast-2.amazonaws.com/livelincidentsPriorites.csv'; // Prod
 
 const incidentlayer = new MapboxLayer({
       id: 'my-scatterplot',
@@ -347,27 +347,31 @@ function refresh()
 				//var unusualness=diff2(item.paxafter,item.h25p_paxafter,item.h75p_paxafter)
         var unusualness = item.jamF
         var colour_1,colour_2,colour_3;
+        var reScaleOpacity;
         if (unusualness < 1 ){  // pink color if jam factor is below 4
+            reScaleOpacity = 100
             colour_1 = 255//148
             colour_2 = 255//0
             colour_3 = 254//211
         }
         else if (unusualness < 4 ){  // purple color if jam factor is below 7
+            reScaleOpacity = 300
+            colour_1 = 221
+            colour_2 = 160
+            colour_3 = 221
+        }       
+        else{          // red color if jam factor is below 7
+            reScaleOpacity = 600
             colour_1 = 255
             colour_2 = 0
             colour_3 = 255
-        }       
-        else{          // red color if jam factor is below 7
-            colour_1 = 220
-            colour_2 = 20
-            colour_3 = 60
         }
 
         //rescale jamfactor (1-10) to translution scale (50-255)
-        var reScaleOpacity = clamp((item.jamF * 0.1)*255)
-        if (reScaleOpacity<50) {
-           reScaleOpacity=50
-        }
+        // var reScaleOpacity = clamp((item.jamF * 0.1)*255)
+        // if (reScaleOpacity<50) {
+        //    reScaleOpacity=50
+        // }
 
         //console.log("UnusalIndex:",unusualness)
 				var opacity=clamp(50+Math.abs(unusualness*100.0))
@@ -401,7 +405,7 @@ function refresh()
         // //tooltiphtml +='waze correlation: '+Math.round(item.jamF)+"<br/>"
         // //tooltiphtml +='Speed: '+Math.round(item.speed)+"<br/>"
         
-
+     
 
 
         /*
@@ -420,6 +424,8 @@ function refresh()
 				if (td2>item.totalgeolen) td2=item.totalgeolen
 				//paths_for_display.push({width: width, path:getPathBetweenDistances(item.coords, td1,td2, item.totalgeolen), color:[unusualness,0, 255-unusualness,opacity] , tooltiphtml:tooltiphtml});
 				//paths_for_display.push({width: width, path:getPathToDistance(item.coords, td1, item.totalgeolen), color:[unusualness,0, 255-unusualness,opacity/2] , tooltiphtml:tooltiphtml});
+
+        //console.log(reScaleOpacity)
 
         paths_for_display.push({width: 4, path:getPathBetweenDistances(item.coords, td1,td2, item.totalgeolen), color:[colour_1,colour_2, colour_3,reScaleOpacity] , tooltiphtml:tooltiphtml});
         paths_for_display.push({width: 4, path:getPathToDistance(item.coords, td1, item.totalgeolen), color:[colour_1,colour_2, colour_3,reScaleOpacity] , tooltiphtml:tooltiphtml});
