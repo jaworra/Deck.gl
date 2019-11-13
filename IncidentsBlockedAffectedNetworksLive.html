@@ -9,6 +9,8 @@
     <script src="./linksflow.json"></script>
 
     <link rel="stylesheet" type="text/css" href="https://api.tiles.mapbox.com/mapbox-gl-js/v0.50.0/mapbox-gl.css">
+    <link rel="shortcut icon" href="">
+
 
 	  <script type="application/javascript" src="https://unpkg.com/react@16.0.0/umd/react.development.js"></script>
 	  <script type="application/javascript" src="https://unpkg.com/react-dom@16.0.0/umd/react-dom.development.js"></script>
@@ -186,7 +188,8 @@ const textlayer = new MapboxLayer({
 });
 
 //new layer with accident
-const DATA_URL = 'https://open-test-public.s3-ap-southeast-2.amazonaws.com/livelincidentsPriorites.csv';
+//const DATA_URL = 'https://open-test-public.s3-ap-southeast-2.amazonaws.com/livelincidentsPriorites.csv'; // Dev
+const DATA_URL = 'https://public-test-road.s3-ap-southeast-2.amazonaws.com/livelincidentsPriorites.csv'; // Prod
 
 const incidentlayer = new MapboxLayer({
       id: 'my-scatterplot',
@@ -339,11 +342,29 @@ function refresh()
 			{
         //console.log("CurrentTime--",sam);
 
+        250,159,181
 
         //break
         //console.log('enters 1')
 				//var unusualness=diff2(item.paxafter,item.h25p_paxafter,item.h75p_paxafter)
         var unusualness = item.jamF
+        253,224,221
+        var colour_1,colour_2,colour_3;
+        if (unusualness < 2 ){  // pink color if jam factor is below 4
+            colour_1 = 223
+            colour_2 = 101
+            colour_3 = 176
+        }
+        else if (unusualness < 4 ){  // purple color if jam factor is below 7
+            colour_1 = 122
+            colour_2 = 1
+            colour_3 = 119
+        }       
+        else{          // red color if jam factor is below 7
+            colour_1 = 255
+            colour_2 = 0
+            colour_3 = 255
+        }
 
         //rescale jamfactor (1-10) to translution scale (50-255)
         var reScaleOpacity = clamp((item.jamF * 0.1)*255)
@@ -384,6 +405,8 @@ function refresh()
         // //tooltiphtml +='Speed: '+Math.round(item.speed)+"<br/>"
         
 
+
+
         /*
         Debugging...
         tooltiphtml +='Opactity Scale: '+opacity+"<br/>"
@@ -401,8 +424,8 @@ function refresh()
 				//paths_for_display.push({width: width, path:getPathBetweenDistances(item.coords, td1,td2, item.totalgeolen), color:[unusualness,0, 255-unusualness,opacity] , tooltiphtml:tooltiphtml});
 				//paths_for_display.push({width: width, path:getPathToDistance(item.coords, td1, item.totalgeolen), color:[unusualness,0, 255-unusualness,opacity/2] , tooltiphtml:tooltiphtml});
 
-        paths_for_display.push({width: 4, path:getPathBetweenDistances(item.coords, td1,td2, item.totalgeolen), color:[255,0, 255,reScaleOpacity] , tooltiphtml:tooltiphtml});
-        paths_for_display.push({width: 4, path:getPathToDistance(item.coords, td1, item.totalgeolen), color:[255,0,255,reScaleOpacity] , tooltiphtml:tooltiphtml});
+        paths_for_display.push({width: 4, path:getPathBetweenDistances(item.coords, td1,td2, item.totalgeolen), color:[colour_1,colour_2, colour_3,reScaleOpacity] , tooltiphtml:tooltiphtml});
+        paths_for_display.push({width: 4, path:getPathToDistance(item.coords, td1, item.totalgeolen), color:[colour_1,colour_2, colour_3,reScaleOpacity] , tooltiphtml:tooltiphtml});
         // rgb
 
 				//paths_for_display.push({path:[getPointByDistance(item.coords, td1, item.totalgeolen),getPointByDistance(item.coords, td2, item.totalgeolen)], color:[unusualness,0, 255-unusualness,200]});
