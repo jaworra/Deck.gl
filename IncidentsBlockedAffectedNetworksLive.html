@@ -22,15 +22,8 @@
 
   	<link href='tooltip.css' rel='stylesheet'/>
 
-	<!-- (loadtime) Babel, to convert our ECMAscript code in this file to browser-compatible code -->
-	<!-- NOTE: if we're running from file://, we can't use this Babel on external files -->
-	<!-- i.e. we can't do <script type='text/babel' src='somelocalfile'>, due to CORS -->
-	<!-- production -->
-
-	<!-- dev -->
-		<!--script type="application/javascript" src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script -->
-
   </head>
+
   <body>
 
 	<div id="map"></div>
@@ -38,21 +31,19 @@
 	<div id="tooltip"></div>
 
   </body>
+
   <!-- script type="text/javascript" -->
   <script type="text/babel" data-plugins="transform-es2015-modules-umd" >
 
 /*LIMITATIONS OF THIS APPROACH!
 deck.gl's multi-view system cannot be used.
 Unless used with react-map-gl, WebGL2 based deck.gl features, such as attribute transitions and GPU accelerated aggregation layers cannot be used
-*/
-// https://github.com/uber/deck.gl/blob/master/docs/api-reference/mapbox/overview.md
-
+*/// https://github.com/uber/deck.gl/blob/master/docs/api-reference/mapbox/overview.md
 
 //dark map, colour lines by route, colour stops (points) similarly; e.g. http://kuanbutts.com/2018/05/25/comparing-6-18-buses/
 //width of segments by loading..
 
 const {MapboxLayer, ArcLayer, ScatterplotLayer} = deck;
-
 // Get a mapbox API access token
 mapboxgl.accessToken = '';
 
@@ -67,25 +58,24 @@ const map = new mapboxgl.Map({
   bearing: 0
 });
 
-
 var thetooltip;
 class Tooltip extends React.Component {
-
 	constructor(props)
 	{
 	 super(props);
 	 this.state={}
 	 thetooltip=this;
 	}
-
 	assignContent(d)
 	{
 	 this.setState({toolinfo: d});
-	}
-
+  }
+  
+// HERE1  console.log('scatterplot layer hovered', info.object)
 	render()
   {
-		var d=this.state;
+    var d=this.state;
+
 		if (!('toolinfo' in d))
 			return  (<div></div>);
 		d=d.toolinfo
@@ -94,91 +84,61 @@ class Tooltip extends React.Component {
 
 		const x=d.x;
 		const y=d.y;
-		const object=d.object;
-		//alert(JSON.stringify(d.object));
+    const object=d.object;
 
-	  if (object && object.tooltiphtml!='') {
+
+    //where object and tooltipthtml is not empty
+    if (object && object.tooltiphtml!='') { 
 		tooltip.style.top = y+'px';
-		tooltip.style.left = x+'px';
+    tooltip.style.left = x+'px';
 
+    // check if the input is from incidents (instead of HERE link id)
+    var keys = Object.keys(object);
+    if (keys.indexOf( 'tooltiphtml' ) == -1 ){ // tooltiphtml not found in object properties
+      //build tooltip
+      var streams_tooltip_html
+      streams_tooltip_html ="ID: "+object.id+"<br/>"
+      streams_tooltip_html +="<br/>"
+      streams_tooltip_html +="Logged Time: "+object.loggedTime+"<br/>"
+      streams_tooltip_html +="Status: "+object.Status+"<br/>"
+      streams_tooltip_html +="Waze Correlation: "+object.wazeCorrelation+"<br/>"
+      streams_tooltip_html +="Temperature: "+object.temp+"<br/>"
+      streams_tooltip_html +="Weather: "+object.weather+"<br/>"
+      streams_tooltip_html +="Holiday: "+object.holiday+"<br/>"
+
+       // Return tooltip html attribute from Streams incident api and associated features
+      return (
+			<div>
+				<div><h3>&nbsp;Live Data&nbsp;</h3></div><div dangerouslySetInnerHTML ={ {__html: streams_tooltip_html} }></div>
+			</div>
+      );
+    }
+  
+    // Return tooltip html attribute from HERE path data
 		return (
 			<div>
 				<div><h3>&nbsp;Live Data&nbsp;</h3></div><div dangerouslySetInnerHTML ={ {__html: object.tooltiphtml} }></div>
 			</div>
-		);
-	  } else {
-		return (<div></div>);
+    );
+
+    //No data.
+	  } else { 
+    //return (<div><h3>&nbsp;Live Data&nbsp;</h3></div>);
+		return (<div><h3>&nbsp;&nbsp;</h3></div>);
 	  }
 	} //end of render()
 }
 
 
-
 ReactDOM.render(<Tooltip />, document.getElementById('tooltip'));
 
 function updateTooltip(d) {
-	thetooltip.assignContent(d);
+  thetooltip.assignContent(d);
+  //console.log(d) // this is not assigning a tool tip for scatterplot
 }
 
 var paths_for_display=[]
 var texts_for_display=[]
-
-/*
-//fade opacity along the line
-class PathLayer2 extends deck.PathLayer { //works, but all coords internally seem to be for along the individual linesegments :(
-      getShaders() {
-        // here comes our custom shader
-        // we will use step function to create opacity gradient with colorA and color B
-        // for more information see https://thebookofshaders.com/05/
-        return Object.assign({}, super.getShaders(), {
-          inject: {
-            'vs:#decl': `
-
-            `,
-            'vs:#main-end': `
-
-              vColor.a = vPathPosition.y;
-
-                        `,
-                        'fs:#main-start': `
-            if (vColor.a == 0.0) discard;
-                        `
-          }
-        });
-      }
-
-
-} */
-
-
-
-/*
-handleHover(data){
-    const {viewport} = this.props;
-    const z = Math.floor(viewport.zoom);
-    let hoveredItems;
-    console.log(z);
-    console.log(data);
-
-    if(data.object){
-        hoveredItems = data.object.zoomLevels[z].points
-    } else {
-        hoveredItems = [data]
-    }
-
-    console.log(hoveredItems);
-
-    this.setState({
-        x: data.x,
-        y: data.y,
-        hoveredItems,
-        expanded: true
-    })
-
-    console.log(this.state);
-}
-*/
-
 
 // Create a mapbox-compatible deck.gl layer
 const pathlayer = new MapboxLayer({
@@ -226,7 +186,8 @@ const textlayer = new MapboxLayer({
 });
 
 //new layer with accident
-const DATA_URL = 'https://public-test-road.s3-ap-southeast-2.amazonaws.com/liveIncidents.csv';
+const DATA_URL = 'https://open-test-public.s3-ap-southeast-2.amazonaws.com/livelincidentsPriorites.csv';
+
 const incidentlayer = new MapboxLayer({
       id: 'my-scatterplot',
       type: ScatterplotLayer,
@@ -239,36 +200,20 @@ const incidentlayer = new MapboxLayer({
       highlightColor: [255,255,0,250],
       pickable: true,
       //onHover: onHoverIncidents,
-      onHover: info => console.log('scatterplot layer hovered', info.object),
-      //onHover: d => {this.handleHover(d)},
-      //onHover: function(info) { updateTooltip(info); return true},
+      //onHover: info => console.log('scatterplot layer hovered', info.object),   //HERE!!!
+      onHover: function(info) { updateTooltip(info); return true},
+      //onHover: info => info.object,
       getPosition: d => [Number(d.lng), Number(d.lat)],
       getColor: d => [255, 0, 0]
   });
 
-
-//Add control box
-//map.addControl(new mapboxgl.NavigationControl());
-
-
-//var layers=[pathlayer,textlayer];
-//map.getCanvas().style.cursor = 'default'; //doesn't work
-
 map.on('load', () => {
- // map.addLayer(myDeckLayer, 'waterway-label');// Insert the layer before mapbox labels (specify the first such)
+
   map.addLayer(pathlayer);
   map.addLayer(textlayer);
   map.addLayer(incidentlayer);
 
-  //map.getCanvas().style.cursor = 'pointer' //doesn't seem to work
-
-  //map.addSource('drone', { type: 'geojson', data: lastdata }); //url
 });
-
-
-
-
-
 
 
 function clamp(n)
@@ -310,14 +255,11 @@ function refresh()
 	var d = new Date(),
 	sam = (d.getTime() - d.setHours(0,0,0,0))/1000; //seconds past midnight
 
-
 	//sam=25205+cnt;
 	//cnt++;
   //sam = 0;
-
   //console.log("CurrentTime--",sam);
 
-	//console.log('
 	var arr=pathdata.filter(function(item) { return (item.start_sam<=sam && item.end_sam>=sam);  });
 	//console.log('arr has '+arr.length+' elements');
 	for (var i = 0; i < arr.length; i++) {
@@ -343,13 +285,15 @@ function refresh()
 			{
 			console.log('<xxxxxxxxxxxxx')
 			console.log(item.coords+" @ "+ item.totalgeolen * ratio+" given "+ item.totalgeolen);
-			console.log('xxxxxxxxxxxxx>')
+      console.log('xxxxxxxxxxxxx>')
+
 			}
 			else
 			if (item.loggedTime > 0 )
 			{
+      
+        //console.log("Enters Logged Time--");
 
-        console.log("Enters Logged Time--");
 				//unusualness=diff2(item.brd,item.h25p_brd,item.h75p_brd)
 				//opacity=clamp(100+Math.abs(unusualness*100.0))
 				//unusualness=clamp(unusualness*100.0+128.0)
@@ -360,12 +304,14 @@ function refresh()
 				//tooltiphtml +='Stop id: '+item.stop_id+"<br/>"
         //var text = 'ldlsflsdl'
 
+        //nothing changes withn this.....
 				tooltiphtml +="<br/>"
         tooltiphtml +="ID: "+item.id+"<br/>"
         tooltiphtml +="Status: "+status.status+"<br/>"
         tooltiphtml +="Blockage Type: "+status.blockageType+"<br/>"
         tooltiphtml +="Classification: "+status.classification+"<br/>"
         tooltiphtml +="Logged Time: "+status.loggedTime+"<br/>"
+
 
         /*
 				tooltiphtml +='Boardings so far: '+Math.floor(item.brd*ratio)+"<br/>"
@@ -391,6 +337,11 @@ function refresh()
       }
 			else
 			{
+        //console.log("CurrentTime--",sam);
+
+
+        //break
+        //console.log('enters 1')
 				//var unusualness=diff2(item.paxafter,item.h25p_paxafter,item.h75p_paxafter)
         var unusualness = item.jamF
 
@@ -413,14 +364,26 @@ function refresh()
         var weightRanged =(10-item.jamF) * 0.1 //0.4
         opacity = opacity/weightRanged
 
-        // Here
+        // Here  - this part works!!!
+        
+        //rewrite this part there to include data source
+
+        //this source HERE datasource
 				var tooltiphtml ='Incident Id: '+item.incident+"<br/>"
         tooltiphtml +="<br/>"
         tooltiphtml +='Route: '+item.route+"<br/>"
         tooltiphtml +='Jam Factor: '+Math.round(item.jamF)+"<br/>"
         tooltiphtml +='Speed: '+Math.round(item.speed)+"<br/>"
 
-        //console.log("Debugging- Chk")
+        //this source for transmax incidents
+        //HERE2
+        // var tooltiphtml ='Incident Id: '+item.id+"<br/>"
+        // tooltiphtml +="<br/>"
+        // tooltiphtml +='blockage type: '+item.blockageType+"<br/>"
+        // //tooltiphtml +='waze correlation: '+Math.round(item.jamF)+"<br/>"
+        // //tooltiphtml +='Speed: '+Math.round(item.speed)+"<br/>"
+        
+
         /*
         Debugging...
         tooltiphtml +='Opactity Scale: '+opacity+"<br/>"
