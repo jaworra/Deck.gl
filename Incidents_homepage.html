@@ -197,21 +197,18 @@ padding: 2px;
 
     <script type="text/javascript">
 
-//const DATA_URL = 'https://road-ops-public.s3-ap-southeast-2.amazonaws.com/liveIncidentsDash.csv'; //offline
-const DATA_URL = 'https://public-test-road.s3-ap-southeast-2.amazonaws.com/liveIncidentsDash.csv';
+const DATA_URL = 'https://open-test-public.s3-ap-southeast-2.amazonaws.com/liveIncidentsDash.csv'; //offline
+//const DATA_URL = 'https://public-test-road.s3-ap-southeast-2.amazonaws.com/liveIncidentsDash.csv';
 
 //Table generation
-          //d3.text("liveIncidentsDash.csv").then(function(data) {
           d3.text(DATA_URL).then(function(data) {
-          //console.log(data);
-          //var rows  = d3.csvParseRows(data);
           var rows  = d3.csvParseRows(data),
           table = d3.select('body').append('table')
           .style("border-collapse", "collapse")
           .style("width", "100%")
           .style("border", "2px black solid");
 
-          // headerss
+          // headers
           table.append("thead").append("tr")
           .selectAll("th")
           .data(rows[0])
@@ -222,10 +219,21 @@ const DATA_URL = 'https://public-test-road.s3-ap-southeast-2.amazonaws.com/liveI
           .style("background-color", "lightgray")
           .style("font-weight", "bold")
           .style("text-transform", "uppercase");
+          
+
+          // select out by district  - THIS PART HERE!!!
+          var new_index = []
+          var district_sel = "Metropolitan"//"North Coast" "South Coast" ""
+          var index;
+          for (index = 0; index < rows.length; ++index) {
+              if (rows[index][3] == district_sel){new_index.push(rows[index])}
+          }
+          //console.log(new_index);
 
           // data
           table.append("tbody")
-          .selectAll("tr").data(rows.slice(1))
+          //.selectAll("tr").data(rows.slice(1))
+          .selectAll("tr").data(new_index.slice(1)) // - take this out for all datasets
           .enter().append("tr")
           .selectAll("td")
           .data(function(d){return d;})
