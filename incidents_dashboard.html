@@ -153,21 +153,17 @@ var 	formatAsPercentage = d3.format("%"),
 
 function dsPieChart(){
 /*
-	var dataset = [
-			{category: "Sam", measure: 0.30},
-	      {category: "Peter", measure: 0.25},
-	      {category: "John", measure: 0.15},
-	      {category: "Rick", measure: 0.05},
-	      {category: "Lenny", measure: 0.18},
-	      {category: "Paul", measure:0.04},
-	      {category: "Steve", measure: 0.03}
-	      ]
-          ;
+ure: 0.2857142857142857}
+1: {category: "Sth Coast", measure: 0.5238095238095238}
+2: {category: "Metro", measure: 0.19047619047619047}
+length: 3
+
+
   */
     var dataset = [
-			{category: "Nth Coast", measure: 0.35},
-	      {category: "Sth Coast", measure: 0.25},
-	      {category: "Metro", measure: 0.4}
+			{category: "Nth Coast", measure: 0.2857142857142857},
+	      {category: "Sth Coast", measure: 0.5238095238095238},
+	      {category: "Metro", measure: 0.19047619047619047}
 	      ]
 	      ;
         
@@ -313,15 +309,47 @@ var datasetBarChart = [
 ;
 
 //debug
-console.log(datasetBarChart)
+//console.log(datasetBarChart)
 const DATA_URL = 'https://open-test-public.s3-ap-southeast-2.amazonaws.com/liveIncidentsDash.csv'; //offline
 d3.csv(DATA_URL, function(data) {
     console.log(data);
-    /*
+
+    var column = [];
+    var totat_cnt = data.length
+    var sth_cst= 0, nth_cst =0, met = 0
     for (var i = 0; i < data.length; i++) {
-        console.log(data[i]);
+        //console.log(data[i]['District']);
+        column.push(data[i]['District']);
+        switch(data[i]['District']){
+            case 'South Coast': 
+            sth_cst++;
+            break;
+            case 'North Coast': 
+            nth_cst++;
+            break;
+            case 'Metropolitan': 
+            met++;
+            break;
+        }
     }
-    */
+    //setup array for pie graph
+    //HERE!!!!
+    var dataset_pie = [
+		  {category: "Nth Coast", measure: nth_cst/totat_cnt},
+	      {category: "Sth Coast", measure: sth_cst/totat_cnt},
+	      {category: "Metro", measure: met/totat_cnt}
+	      ]
+          ;
+          
+    console.log(dataset2);
+
+
+    //group and count
+    let array = column,//["South Coast","North Coast","Metropolitan"],
+    result = array.reduce((a, c) => (a[c] = (a[c] || 0) + 1, a), Object.create(null));
+    console.log(result);
+
+
 });
 
 
