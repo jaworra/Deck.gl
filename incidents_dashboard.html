@@ -342,14 +342,15 @@ var 	formatAsPercentage = d3.format("%"),
 
 //debug
 //Build data - Pie, Bar and Bar2 graph
-const DATA_URL = 'https://open-test-public.s3-ap-southeast-2.amazonaws.com/liveIncidentsDash.csv'; //offline
-//const DATA_URL = 'https://public-test-road.s3-ap-southeast-2.amazonaws.com/liveIncidentsDash.csv'; //online
+//const DATA_URL = 'https://open-test-public.s3-ap-southeast-2.amazonaws.com/liveIncidentsDash.csv'; //offline
+const DATA_URL = 'https://public-test-road.s3-ap-southeast-2.amazonaws.com/liveIncidentsDash.csv'; //online
 d3.csv(DATA_URL, function(data) {
-    console.log(data);
+console.log(data);
 
-	const DATA_URL_NEW = 'https://open-test-public.s3-ap-southeast-2.amazonaws.com/summarised_incidents.csv'; //offline
-	d3.csv(DATA_URL_NEW, function(data2) {
-		console.log(data2);
+	//const DATA_URL_2 = 'https://open-test-public.s3-ap-southeast-2.amazonaws.com/summarised_incidents.csv'; //offline
+	const DATA_URL_2 = 'https://public-test-road.s3-ap-southeast-2.amazonaws.com/data/curated/summarised_incidents.csv'; //online
+	d3.csv(DATA_URL_2, function(data2) {
+	console.log(data2);
 
     //total variables
     var totat_cnt = data.length
@@ -1169,7 +1170,7 @@ console.log(data);
 */
 
 
-
+/*
 var datasetLineChart = [
 { group: "All", category: 1400, measure: 9 }, 
 { group: "All", category: 1500, measure: 9 }, 
@@ -1214,10 +1215,9 @@ var datasetLineChart = [
 { group: "Metro", category: 2012, measure: 11725 }
 ]
 ;
-
-
-datasetLineChartdata = data2
-
+*/
+// changes....
+var datasetLineChart = data2
 
 
 // set initial category value
