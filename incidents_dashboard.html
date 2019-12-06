@@ -342,13 +342,13 @@ var 	formatAsPercentage = d3.format("%"),
 
 //debug
 //Build data - Pie, Bar and Bar2 graph
-//const DATA_URL = 'https://open-test-public.s3-ap-southeast-2.amazonaws.com/liveIncidentsDash.csv'; //offline
-const DATA_URL = 'https://public-test-road.s3-ap-southeast-2.amazonaws.com/liveIncidentsDash.csv'; //online
+const DATA_URL = 'https://open-test-public.s3-ap-southeast-2.amazonaws.com/liveIncidentsDash.csv'; //offline
+//const DATA_URL = 'https://public-test-road.s3-ap-southeast-2.amazonaws.com/liveIncidentsDash.csv'; //online
 d3.csv(DATA_URL, function(data) {
 console.log(data);
 
-	//const DATA_URL_2 = 'https://open-test-public.s3-ap-southeast-2.amazonaws.com/summarised_incidents.csv'; //offline
-	const DATA_URL_2 = 'https://public-test-road.s3-ap-southeast-2.amazonaws.com/data/curated/summarised_incidents.csv'; //online
+	const DATA_URL_2 = 'https://open-test-public.s3-ap-southeast-2.amazonaws.com/summarised_incidents.csv'; //offline
+	//const DATA_URL_2 = 'https://public-test-road.s3-ap-southeast-2.amazonaws.com/data/curated/summarised_incidents.csv'; //online
 	d3.csv(DATA_URL_2, function(data2) {
 	console.log(data2);
 
@@ -920,6 +920,52 @@ function updateBarChart(group, colorChosen) {
 -------------------------------------------
 */
 
+
+/*
+//Debug mode
+var datasetLineChart = [
+{ group: "All", category: 2008, measure: 289309 }, 
+{ group: "All", category: 2009, measure: 234998 }, 
+{ group: "All", category: 2010, measure: 310900 }, 
+{ group: "All", category: 2011, measure: 223900 }, 
+{ group: "All", category: 2012, measure: 234500 }, 
+{ group: "All", category: 2013, measure: 310900 }, 
+{ group: "All", category: 2014, measure: 223900 }, 
+{ group: "All", category: 2015, measure: 234500 }, 
+{ group: "Sth Coast", category: 2008, measure: 81006.52 }, 
+{ group: "Sth Coast", category: 2009, measure: 70499.4 }, 
+{ group: "Sth Coast", category: 2010, measure: 96379 }, 
+{ group: "Sth Coast", category: 2011, measure: 64931 }, 
+{ group: "Sth Coast", category: 2012, measure: 70350 }, 
+{ group: "Sth Coast", category: 2010, measure: 96379 }, 
+{ group: "Sth Coast", category: 2011, measure: 64931 }, 
+{ group: "Sth Coast", category: 2012, measure: 70350 }, 
+{ group: "Nth Coast", category: 2008, measure: 63647.98 }, 
+{ group: "Nth Coast", category: 2009, measure: 61099.48 }, 
+{ group: "Nth Coast", category: 2010, measure: 87052 }, 
+{ group: "Nth Coast", category: 2011, measure: 58214 }, 
+{ group: "Nth Coast", category: 2012, measure: 58625 }, 
+{ group: "Nth Coast", category: 2010, measure: 87052 }, 
+{ group: "Nth Coast", category: 2011, measure: 58214 }, 
+{ group: "Nth Coast", category: 2012, measure: 58625 }, 
+{ group: "Metro", category: 2008, measure: 23144.72 }, 
+{ group: "Metro", category: 2009, measure: 14099.88 }, 
+{ group: "Metro", category: 2010, measure: 15545 }, 
+{ group: "Metro", category: 2011, measure: 11195 }, 
+{ group: "Metro", category: 2012, measure: 11725 }, 
+{ group: "Metro", category: 2010, measure: 15545 }, 
+{ group: "Metro", category: 2011, measure: 11195 }, 
+{ group: "Metro", category: 2012, measure: 11725 }
+]
+;
+
+
+
+
+
+
+*/
+
 var datasetBarChart_new = dataset_barchart2_processed
 
 // set initial group value
@@ -1169,56 +1215,8 @@ console.log(data);
 -------------------------------------------
 */
 
-
-/*
-var datasetLineChart = [
-{ group: "All", category: 1400, measure: 9 }, 
-{ group: "All", category: 1500, measure: 9 }, 
-{ group: "All", category: 1600, measure: 8 }, 
-{ group: "All", category: 1800, measure: 4 }, 
-{ group: "All", category: 2300, measure: 6 }, 
-{ group: "All", category: 0000, measure: 3 }, 
-{ group: "All", category: 0100, measure: 3 }, 
-{ group: "All", category: 0500, measure: 3 },
-{ group: "All", category: 0600, measure: 1 }, 
-{ group: "All", category: 0700, measure: 1 },
-{ group: "All", category: 0800, measure: 1 }, 
-{ group: "All", category: 0900, measure: 3 }, 
-{ group: "All", category: 1000, measure: 1 }, 
-{ group: "All", category: 1100, measure: 1 }, 
-{ group: "All", category: 1200, measure: 1 }, 
-{ group: "All", category: 1300, measure: 5 }, 
-{ group: "All", category: 1400, measure: 2 }, 
-{ group: "Sth Coast", category: 2008, measure: 0 }, 
-{ group: "Sth Coast", category: 2009, measure: 70499.4 }, 
-{ group: "Sth Coast", category: 2010, measure: 96379 }, 
-{ group: "Sth Coast", category: 2011, measure: 64931 }, 
-{ group: "Sth Coast", category: 2012, measure: 70350 }, 
-{ group: "Sth Coast", category: 2010, measure: 96379 }, 
-{ group: "Sth Coast", category: 2011, measure: 64931 }, 
-{ group: "Sth Coast", category: 2012, measure: 70350 }, 
-{ group: "Nth Coast", category: 2008, measure: 63647.98 }, 
-{ group: "Nth Coast", category: 2009, measure: 61099.48 }, 
-{ group: "Nth Coast", category: 2010, measure: 87052 }, 
-{ group: "Nth Coast", category: 2011, measure: 58214 }, 
-{ group: "Nth Coast", category: 2012, measure: 58625 }, 
-{ group: "Nth Coast", category: 2010, measure: 87052 }, 
-{ group: "Nth Coast", category: 2011, measure: 58214 }, 
-{ group: "Nth Coast", category: 2012, measure: 58625 }, 
-{ group: "Metro", category: 2008, measure: 23144.72 }, 
-{ group: "Metro", category: 2009, measure: 14099.88 }, 
-{ group: "Metro", category: 2010, measure: 15545 }, 
-{ group: "Metro", category: 2011, measure: 11195 }, 
-{ group: "Metro", category: 2012, measure: 11725 }, 
-{ group: "Metro", category: 2010, measure: 15545 }, 
-{ group: "Metro", category: 2011, measure: 11195 }, 
-{ group: "Metro", category: 2012, measure: 11725 }
-]
-;
-*/
 // changes....
 var datasetLineChart = data2
-
 
 // set initial category value
 var group = "All";
@@ -1264,7 +1262,7 @@ function dsLineChart() {
 	    ;
 
 	var yScale = d3.scale.linear()
-	    .domain([0, d3.max(firstDatasetLineChart, function(d) { return d.measure; })])
+	    .domain([-1, d3.max(firstDatasetLineChart, function(d) { return d.measure; })])
 	    .range([height, 0])
 	    ;
 	
@@ -1320,7 +1318,7 @@ function dsLineChart() {
 	    ;
 
 	svg.append("text")
-		.text("Current Performance")
+		.text("Current Incidents")
 		.attr("id","lineChartTitle1")	
 		.attr("x",margin.left + ((width + margin.right)/2))
 		.attr("y", 10)
@@ -1350,7 +1348,7 @@ function updateLineChart(group, colorChosen) {
 	    ;
 
 	var yScale = d3.scale.linear()
-	    .domain([0, d3.max(currentDatasetLineChart, function(d) { return d.measure; })])
+	    .domain([d3.min(currentDatasetLineChart, function(d) { return d.measure; })-1, d3.max(currentDatasetLineChart, function(d) { return d.measure; })])
 	    .range([height, 0])
 	    ;
 	
