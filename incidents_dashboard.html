@@ -357,7 +357,6 @@ console.log(data);
             d.measure = parseInt(d.measure);
         });
 
-
 	console.log(data2);
 
     //total variables
@@ -968,10 +967,6 @@ var datasetLineChart = [
 ;
 
 
-
-
-
-
 */
 
 var datasetBarChart_new = dataset_barchart2_processed
@@ -1223,6 +1218,40 @@ console.log(data);
 -------------------------------------------
 */
 
+
+
+//new line
+var line2 = [
+{ group: "All", category: 14, measure: 4 }, 
+{ group: "All", category: 15, measure: 4 }, 
+{ group: "All", category: 16, measure: 5 }, 
+{ group: "All", category: 17, measure: 4 }, 
+{ group: "All", category: 18, measure: 4 }, 
+{ group: "All", category: 19, measure: 4 }, 
+{ group: "All", category: 20, measure: 6 }, 
+{ group: "All", category: 21, measure: 4 }, 
+{ group: "All", category: 22, measure: 4 }, 
+{ group: "All", category: 23, measure: 6 }, 
+{ group: "All", category: 0, measure: 8 }, 
+{ group: "All", category: 1, measure: 5 }, 
+{ group: "All", category: 2, measure: 2 }, 
+{ group: "All", category: 3, measure: 2 }, 
+{ group: "All", category: 4, measure: 2 }, 
+{ group: "All", category: 5, measure: 8 }, 
+{ group: "All", category: 6, measure: 10 }, 
+{ group: "All", category: 7, measure: 6 }, 
+{ group: "All", category: 8, measure: 8 }, 
+{ group: "All", category: 9, measure: 9 }, 
+{ group: "All", category: 10, measure: 6 }, 
+{ group: "All", category: 11, measure: 2 }, 
+{ group: "All", category: 12, measure: 3 }, 
+{ group: "All", category: 13, measure: 4 }, 
+{ group: "All", category: 14, measure: 5 }
+]
+;
+
+console.log(line2)
+
 // changes....
 var datasetLineChart = data2
 
@@ -1273,12 +1302,7 @@ function dsLineChart() {
 	    .domain([-1, d3.max(firstDatasetLineChart, function(d) { return d.measure; })])
 	    .range([height, 0])
 		;
-	console.log(d3.max(firstDatasetLineChart, function(d) { return d.measure; }))
-	console.log("ss")
-	console.log(d3.min(firstDatasetLineChart, function(d) { return d.measure; }))
-	console.log(d3.sum(firstDatasetLineChart, function(d) { return d.measure; }))
-
-
+		
 	var line = d3.svg.line()
 	    //.x(function(d) { return xScale(d.category); })
 	    .x(function(d, i) { return xScale(i); })
@@ -1307,20 +1331,29 @@ function dsLineChart() {
 		.attr("y",height/2)	
 		;
 	/* descriptive titles -- end */
-	    
+		
+	//add line
 	plot.append("path")
 	    .attr("class", "line")
 	    .attr("d", line)	
 	    // add color
 		.attr("stroke", "lightgrey")
-	    ;
-	  
+		;
+	// Add line2
+	plot.append("path")
+		.data([line2])
+		.attr("class", "line")
+		.style("stroke", "red")
+		.style("stroke-dasharray","2,5")//dashed array for line
+		.style("stroke-width", 1)
+		.attr("d", line);
+		
 	plot.selectAll(".dot")
 	    .data(firstDatasetLineChart)
-	  	 .enter().append("circle")
+	  	.enter().append("circle")
 	    .attr("class", "dot")
 	    //.attr("stroke", function (d) { return d.measure==datasetMeasureMin ? "red" : (d.measure==datasetMeasureMax ? "green" : "steelblue") } )
-	    .attr("fill", function (d) { return d.measure==d3.min(firstDatasetLineChart, function(d) { return d.measure; }) ? "red" : (d.measure==d3.max(firstDatasetLineChart, function(d) { return d.measure; }) ? "green" : "white") } )
+	    .attr("fill", function (d) { return d.measure==d3.min(firstDatasetLineChart, function(d) { return d.measure; }) ? "green" : (d.measure==d3.max(firstDatasetLineChart, function(d) { return d.measure; }) ? "red" : "white") } )
 	    //.attr("stroke-width", function (d) { return d.measure==datasetMeasureMin || d.measure==datasetMeasureMax ? "3px" : "1.5px"} )
 	    .attr("cx", line.x())
 	    .attr("cy", line.y())
@@ -1336,7 +1369,6 @@ function dsLineChart() {
 		.attr("x",margin.left + ((width + margin.right)/2))
 		.attr("y", 10)
 		;
-
 }
 
 dsLineChart();
@@ -1352,7 +1384,7 @@ function updateLineChart(group, colorChosen) {
 	
 	var margin = basics.margin,
 		width = basics.width,
-	   height = basics.height
+	   	height = basics.height
 		;
 
 	var xScale = d3.scale.linear()
@@ -1366,12 +1398,12 @@ function updateLineChart(group, colorChosen) {
 	    ;
 	
 	var line = d3.svg.line()
-    .x(function(d, i) { return xScale(i); })
-    .y(function(d) { return yScale(d.measure); })
+    	.x(function(d, i) { return xScale(i); })
+    	.y(function(d) { return yScale(d.measure); })
     ;
 
    var plot = d3.select("#lineChartPlot")
-   	.datum(currentDatasetLineChart)
+   		.datum(currentDatasetLineChart)
 	   ;
 	   
 	/* descriptive titles as part of plot -- start */
@@ -1383,25 +1415,25 @@ function updateLineChart(group, colorChosen) {
 	/* descriptive titles -- end */
 	   
 	plot
-	.select("path")
+		.select("path")
 		.transition()
 		.duration(750)			    
-	   .attr("class", "line")
-	   .attr("d", line)	
+	    .attr("class", "line")
+	    .attr("d", line)	
 	   // add color
 		.attr("stroke", colorChosen)
 	   ;
 	   
 	var path = plot
 		.selectAll(".dot")
-	   .data(currentDatasetLineChart)
-	   .transition()
+		.data(currentDatasetLineChart)
+		.transition()
 		.duration(750)
-	   .attr("class", "dot")
-	   .attr("fill", function (d) { return d.measure==d3.min(currentDatasetLineChart, function(d) { return d.measure; }) ? "red" : (d.measure==d3.max(currentDatasetLineChart, function(d) { return d.measure; }) ? "green" : "white") } )
-	   .attr("cx", line.x())
-	   .attr("cy", line.y())
-	   .attr("r", 3.5)
+		.attr("class", "dot")
+		.attr("fill", function (d) { return d.measure==d3.min(currentDatasetLineChart, function(d) { return d.measure; }) ? "green" : (d.measure==d3.max(currentDatasetLineChart, function(d) { return d.measure; }) ? "red" : "white") } )
+		.attr("cx", line.x())
+		.attr("cy", line.y())
+		.attr("r", 3.5)
 	   // add color
 		.attr("stroke", colorChosen)
 	   ;
