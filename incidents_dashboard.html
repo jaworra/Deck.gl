@@ -603,9 +603,9 @@ function dsPieChart(){
             .append("svg:g")                //create a group to hold each slice (we will have a <path> and a <text> element associated with each slice)
                .attr("class", "slice")    //allow us to style things in the slices (like text)
                .on("mouseover", mouseover)
-    				.on("mouseout", mouseout)
-    				.on("click", up)
-    				;
+    		   .on("mouseout", mouseout)
+    		   .on("click", up)
+    			;
     				
         arcs.append("svg:path")
                .attr("fill", function(d, i) { return color(i); } ) //set the color for each slice to be chosen from the color function defined above
@@ -622,7 +622,7 @@ function dsPieChart(){
 	  // Add a label to the larger arcs, translated to the arc centroid and rotated.
 	  // source: http://bl.ocks.org/1305337#index.html
 	  arcs.filter(function(d) { return d.endAngle - d.startAngle > .2; })
-	  		.append("svg:text")
+	  	  .append("svg:text")
 	      .attr("dy", ".35em")
 	      .attr("text-anchor", "middle")
 	      .attr("transform", function(d) { return "translate(" + arcFinal.centroid(d) + ")rotate(" + angle(d) + ")"; })
@@ -636,17 +636,14 @@ function dsPieChart(){
 		    return a > 90 ? a - 180 : a;
 		}
 		    
-		
 		// Pie chart title			
 		vis.append("svg:text")
-	     	.attr("dy", ".35em")
+	      .attr("dy", ".35em")
 	      .attr("text-anchor", "middle")
-	      .text("District ")
+	      .text("Disticts")
 	      .attr("class","title")
 	      ;		    
-
-
-		
+	
 	function mouseover() {
 	  d3.select(this).select("path").transition()
 	      .duration(750)
@@ -835,7 +832,7 @@ function dsBarChart() {
 		.attr("y", 15)
 		.attr("class","title")				
 		.attr("text-anchor", "middle")
-		.text("Overall Event Type Breakdown")
+		.text("Overall Events in last 24 hours")
 		;
 }
 
@@ -1119,7 +1116,7 @@ function dsBarChart_new() {
 		.attr("y", 15)
 		.attr("class","title")				
 		.attr("text-anchor", "middle")
-		.text("Overall Impact Breakdown")
+		.text("Overall Impacts in last 24 hours")
 		;
 }
 
@@ -1160,7 +1157,7 @@ function updateBarChart_new(group, colorChosen) {
 	   	.datum(currentDatasetBarChart_new)
 		   ;
 	
-	  		/* Note that here we only have to select the elements - no more appending! */
+	  	/* Note that here we only have to select the elements - no more appending! */
 	  	plot.selectAll("rect")
 	      .data(currentDatasetBarChart_new)
 	      .transition()
